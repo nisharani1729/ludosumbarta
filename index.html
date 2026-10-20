@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f1e8">
+  <title>Ludo Sumbarta</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      color-scheme: light;
+      --paper: #fff4fa;
+      --ink: #202c2b;
+      --muted: #766579;
+      --line: #ead1df;
+      --green: #0aaf46;
+      --green-pale: #b6efc6;
+      --coral: #ee2525;
+      --coral-pale: #ffc1c1;
+      --yellow: #ffd31a;
+      --blue: #087eea;
+      --white: #fffef9;
+      font-family: 'Outfit', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      background-color: var(--paper);
+      background-image: radial-gradient(#ebc8dc 0.7px, transparent 0.7px);
+      background-size: 18px 18px;
+    }
+    button { font: inherit; }
+    .shell { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .topbar { height: 82px; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #f5b2d4; }
+    .brand { display: flex; align-items: center; gap: 11px; font-size: 22px; font-weight: 800; letter-spacing: 0; color: #fff324; text-shadow: 0 2px 0 #e53c15, 0 4px 0 #a41425, 0 5px 5px #7e0b3980; }
+    .brand-mark { width: 40px; height: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 3px; padding: 5px; border: 2px solid #ff77be; border-radius: 12px; background: linear-gradient(145deg, #ff4baa, #a80055); box-shadow: inset 0 2px 3px #ffffff9c, 0 3px 0 #850047, 0 4px 7px #8d0b4855; transform: rotate(-6deg); }
+    .brand-mark i { border: 1px solid #ffffffb5; border-radius: 50%; background: linear-gradient(145deg, #65f593, var(--green)); box-shadow: 0 1px 2px #74134380; }
+    .brand-mark i:nth-child(2) { background: linear-gradient(145deg, #fff575, var(--yellow)); }
+    .brand-mark i:nth-child(3) { background: linear-gradient(145deg, #7de2ff, var(--blue)); }
+    .brand-mark i:nth-child(4) { background: linear-gradient(145deg, #ff9991, var(--coral)); }
+    .online { display: flex; align-items: center; gap: 8px; color: #fff; font: 500 11px 'DM Mono', monospace; text-transform: uppercase; padding: 8px 11px; border: 1px solid #ff85bf; border-radius: 20px; background: linear-gradient(180deg, #f72891, #c80069); box-shadow: inset 0 1px 1px #ffffff9c, 0 2px 0 #a90059; }
+    .online::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px #268a651c; }
+
+    main { padding: 48px 0 60px; }
+    .intro { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 25px; }
+    .eyebrow { margin: 0 0 7px; color: #c50067; font: 500 11px 'DM Mono', monospace; letter-spacing: 0; text-transform: uppercase; }
+    h1 { margin: 0; color: #fff31a; font-size: clamp(37px, 6vw, 56px); font-weight: 800; line-height: .98; letter-spacing: 0; -webkit-text-stroke: 1px #ffec10; text-shadow: 2px 3px 0 #f83e16, 4px 6px 0 #a40835, 5px 8px 9px #78033a66; }
+    h1 span { color: #fff; font-size: .58em; -webkit-text-stroke: 0; text-shadow: 2px 3px 0 #065ed7, 4px 5px 0 #073c91, 5px 7px 8px #00326670; }
+    .intro-copy { max-width: 280px; margin: 0 0 3px; color: var(--muted); font-size: 14px; line-height: 1.5; }
+
+    .game { display: grid; grid-template-columns: minmax(0, 1fr) 285px; gap: 18px; align-items: stretch; }
+    .board-wrap { min-width: 0; padding: clamp(12px, 2.4vw, 25px); border: 2px solid #ff7ebc; border-radius: 9px; background: linear-gradient(145deg, #ff48a4, #cf0068 68%, #970048); box-shadow: inset 0 2px 3px #ffffffbd, 0 4px 0 #870044, 0 8px 20px #a90c5b29; }
+    .board { position: relative; display: grid; grid-template-columns: repeat(7, 1fr); grid-template-rows: repeat(7, 1fr); gap: 5px; width: 100%; aspect-ratio: 1; padding: 8px; border: 2px solid #ffb8db; border-radius: 6px; background: linear-gradient(145deg, #fffef9, #f4e6ed); box-shadow: inset 0 2px 5px #8c164426; }
+    .tile { position: relative; display: grid; place-items: center; min-width: 0; border-radius: 4px; background: #f2f0e7; }
+    .tile.track { border: 1px solid #e8dfe1; box-shadow: inset 0 1px 1px #fff; }
+    .tile.safe::after { content: '✦'; color: #a8ad9e; font-size: clamp(10px, 2vw, 17px); }
+    .tile.center { background: conic-gradient(from 45deg, var(--yellow) 0 25%, var(--blue) 0 50%, var(--coral) 0 75%, var(--green) 0); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+    .tile.center::after { content: ''; width: 43%; height: 43%; border: 2px solid #fffef9cc; border-radius: 50%; }
+    .home { grid-column: span 3; grid-row: span 3; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; place-items: center; gap: 7%; padding: 16%; border-radius: 5px; }
+    .home.green { grid-column: 1 / span 3; grid-row: 1 / span 3; background: linear-gradient(145deg, #36e66d, #078f32); box-shadow: inset 0 2px 3px #ffffffa3, inset 0 -4px 0 #057127; }
+    .home.coral { grid-column: 5 / span 3; grid-row: 1 / span 3; background: linear-gradient(145deg, #ff7770, #d60e26); box-shadow: inset 0 2px 3px #ffffffa3, inset 0 -4px 0 #ac071c; }
+    .home.blue { grid-column: 1 / span 3; grid-row: 5 / span 3; background: linear-gradient(145deg, #67d9ff, #0872dd); box-shadow: inset 0 2px 3px #ffffffa3, inset 0 -4px 0 #0751b4; }
+    .home.yellow { grid-column: 5 / span 3; grid-row: 5 / span 3; background: linear-gradient(145deg, #fff36b, #eab500); box-shadow: inset 0 2px 3px #ffffffa3, inset 0 -4px 0 #bd8000; }
+    .base { width: 100%; height: 100%; max-width: 38px; max-height: 38px; border: 2px solid #fff; border-radius: 50%; background: linear-gradient(145deg, #fff, #f0e8e6); box-shadow: inset 0 2px 4px #182d2b14, 0 2px 2px #5e11344a; }
+    .tile.start-green { background: linear-gradient(145deg, #55ef89, #079941); }
+    .tile.start-coral { background: linear-gradient(145deg, #ff8282, #de101a); }
+    .tile.start-blue { background: linear-gradient(145deg, #75dcff, #0872dc); }
+    .tile.start-yellow { background: linear-gradient(145deg, #fff368, #eab500); }
+    .token { position: absolute; z-index: 2; width: 68%; height: 68%; max-width: 29px; max-height: 29px; display: grid; place-items: center; border: 2px solid var(--white); border-radius: 50%; color: white; font-size: clamp(8px, 1.4vw, 12px); font-weight: 800; box-shadow: 0 2px 4px #172b2938; transition: left 260ms ease, top 260ms ease, transform 160ms ease; }
+    .token.green { background: var(--green); }
+    .token.coral { background: var(--coral); }
+    .token.blue { background: var(--blue); }
+    .token.yellow { background: var(--yellow); }
+    .base .token { width: 82%; height: 82%; }
+
+    .panel { display: flex; flex-direction: column; padding: 20px; border: 1px solid var(--line); border-radius: 8px; background: var(--white); box-shadow: 0 3px 0 #d5d5ca; }
+    .panel-label { margin: 0 0 12px; color: var(--muted); font: 500 10px 'DM Mono', monospace; letter-spacing: 0; text-transform: uppercase; }
+    .players { display: grid; gap: 8px; }
+    .player { display: flex; align-items: center; gap: 11px; min-height: 54px; padding: 8px 10px; border: 1px solid transparent; border-radius: 5px; transition: background 160ms ease, border-color 160ms ease; }
+    .player.active.green { border-color: #abd5b9; background: #edf7ef; }
+    .player.active.coral { border-color: #f0b7a7; background: #fff1eb; }
+    .player-dot { flex: 0 0 auto; width: 12px; height: 12px; border-radius: 50%; background: var(--green); }
+    .player.coral .player-dot { background: var(--coral); }
+    .player-name { flex: 1; font-size: 14px; font-weight: 600; }
+    .player-status { color: var(--muted); font: 11px 'DM Mono', monospace; }
+    .turn { min-height: 62px; display: flex; align-items: center; gap: 10px; margin: 17px 0; padding: 12px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); color: var(--muted); font-size: 13px; line-height: 1.35; }
+    .turn strong { color: var(--ink); }
+    .die { flex: 0 0 auto; width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 7px; background: white; color: var(--ink); font-size: 22px; font-weight: 700; box-shadow: 0 2px 0 #e5e3da; }
+    .die.rolling { animation: tumble 450ms ease; }
+    @keyframes tumble { 50% { transform: rotate(180deg) scale(.82); } }
+    .roll { min-height: 46px; display: flex; align-items: center; justify-content: center; gap: 9px; border: 0; border-radius: 5px; background: var(--ink); color: white; font-size: 14px; font-weight: 700; cursor: pointer; transition: background 150ms ease, transform 150ms ease; }
+    .roll:hover:not(:disabled) { background: #c90069; transform: translateY(-1px); }
+    .roll:focus-visible, .reset:focus-visible { outline: 3px solid #e5b63d; outline-offset: 3px; }
+    .roll:disabled { cursor: default; opacity: .55; }
+    .roll svg { width: 17px; height: 17px; }
+    .hint { min-height: 36px; margin: 11px 0 0; color: var(--muted); font-size: 12px; line-height: 1.45; text-align: center; }
+    .panel-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 15px; border-top: 1px solid var(--line); }
+    .score { font: 11px 'DM Mono', monospace; color: var(--muted); }
+    .reset { padding: 7px 0 7px 8px; border: 0; background: transparent; color: var(--ink); font-size: 12px; font-weight: 600; cursor: pointer; }
+    .footer { display: flex; justify-content: space-between; gap: 16px; margin-top: 22px; color: var(--muted); font: 10px 'DM Mono', monospace; text-transform: uppercase; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+    @media (max-width: 720px) {
+      .shell { width: min(560px, calc(100% - 28px)); }
+      .topbar { height: 66px; }
+      main { padding: 30px 0 36px; }
+      .intro { align-items: start; flex-direction: column; gap: 8px; margin-bottom: 17px; }
+      .intro-copy { max-width: 360px; }
+      .game { grid-template-columns: 1fr; gap: 12px; }
+      .board-wrap { padding: 12px; }
+      .board { gap: 4px; padding: 6px; }
+      .panel { padding: 15px; }
+      .players { grid-template-columns: 1fr 1fr; }
+      .player { min-height: 48px; gap: 8px; padding: 7px; }
+      .player-name { font-size: 12px; }
+      .player-status { font-size: 9px; }
+      .turn { min-height: 54px; margin: 12px 0; }
+      .panel-bottom { margin-top: 10px; }
+      .footer { font-size: 9px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar shell">
+    <div class="brand" aria-label="Ludo Sumbarta home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span>Ludo Sumbarta</span>
+    </div>
+    <div class="online">Pass &amp; play</div>
+  </header>
+
+  <main class="shell">
+    <section class="intro" aria-labelledby="game-title">
+      <div>
+        <p class="eyebrow">A little friendly rivalry</p>
+        <h1 id="game-title">LUDO <span>Sumbarta</span></h1>
+      </div>
+      <p class="intro-copy">Your move. One board, two players, and just enough luck to keep things interesting.</p>
+    </section>
+
+    <section class="game" aria-label="Ludo Sumbarta game">
+      <div class="board-wrap">
+        <div class="board" id="board" role="img" aria-label="Ludo board. Green and coral players race around the track.">
+          <div class="home green" aria-hidden="true"><span class="base"></span><span class="base"></span><span class="base"></span><span class="base"></span></div>
+          <div class="home coral" aria-hidden="true"><span class="base"></span><span class="base"></span><span class="base"></span><span class="base"></span></div>
+          <div class="home blue" aria-hidden="true"><span class="base"></span><span class="base"></span><span class="base"></span><span class="base"></span></div>
+          <div class="home yellow" aria-hidden="true"><span class="base"></span><span class="base"></span><span class="base"></span><span class="base"></span></div>
+          <div class="tile center" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <aside class="panel" aria-label="Game controls">
+        <p class="panel-label">Players</p>
+        <div class="players" id="players">
+          <div class="player green active" id="player-green"><span class="player-dot"></span><span class="player-name">Player 1</span><span class="player-status" id="status-green">Your turn</span></div>
+          <div class="player coral" id="player-coral"><span class="player-dot"></span><span class="player-name">Player 2</span><span class="player-status" id="status-coral">Waiting</span></div>
+        </div>
+        <div class="turn" aria-live="polite" aria-atomic="true">
+          <span class="die" id="die" aria-label="Dice not rolled yet">⚀</span>
+          <span id="message"><strong>Player 1</strong>, roll to start.</span>
+        </div>
+        <button class="roll" id="roll" type="button">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="2"/><circle cx="9" cy="9" r="1.4" fill="currentColor"/><circle cx="15" cy="15" r="1.4" fill="currentColor"/><circle cx="15" cy="9" r="1.4" fill="currentColor"/><circle cx="9" cy="15" r="1.4" fill="currentColor"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg>
+          <span>Roll the dice</span>
+        </button>
+        <p class="hint" id="hint">Roll a 6 to bring your token onto the board.</p>
+        <div class="panel-bottom">
+          <span class="score" id="score">0 / 24 spaces</span>
+          <button class="reset" id="reset" type="button">New game</button>
+        </div>
+      </aside>
+    </section>
+    <footer class="footer"><span>Made for the next game night</span><span>Take turns · Cheer loudly</span></footer>
+  </main>
+
+  <script>
+    const board = document.querySelector('#board');
+    const rollButton = document.querySelector('#roll');
+    const die = document.querySelector('#die');
+    const message = document.querySelector('#message');
+    const hint = document.querySelector('#hint');
+    const score = document.querySelector('#score');
+    const track = [];
+    let currentPlayer = 0;
+    let positions = [-1, -1];
+    let finished = false;
+    let rolling = false;
+
+    // Clockwise path around the 7-by-7 board, starting at the top of the green base.
+    for (let col = 3; col <= 6; col++) track.push([0, col]);
+    for (let row = 1; row <= 6; row++) track.push([row, 6]);
+    for (let col = 5; col >= 0; col--) track.push([6, col]);
+    for (let row = 5; row >= 0; row--) track.push([row, 0]);
+    track.push([0, 1], [0, 2]);
+
+    const starts = [0, 12];
+    const colors = ['green', 'coral'];
+    const dieFaces = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
+    const cells = new Map();
+
+    track.forEach(([row, col], index) => {
+      const tile = document.createElement('div');
+      tile.className = 'tile track';
+      tile.style.gridRow = String(row + 1);
+      tile.style.gridColumn = String(col + 1);
+      if (index % 6 === 0) tile.classList.add('safe');
+      if (index === starts[0]) tile.classList.add('start-green');
+      if (index === starts[1]) tile.classList.add('start-coral');
+      board.append(tile);
+      cells.set(index, tile);
+    });
+
+    const tokens = colors.map((color, player) => {
+      const token = document.createElement('span');
+      token.className = `token ${color}`;
+      token.textContent = String(player + 1);
+      token.setAttribute('aria-label', `Player ${player + 1} token`);
+      if (player === 0) cells.get(starts[player]).append(token);
+      else board.querySelector('.home.coral .base').append(token);
+      return token;
+    });
+
+    function updatePlayers() {
+      colors.forEach((color, index) => {
+        document.querySelector(`#player-${color}`).classList.toggle('active', index === currentPlayer && !finished);
+        document.querySelector(`#status-${color}`).textContent = finished
+          ? (positions[index] >= 24 ? 'Winner!' : 'Finished')
+          : index === currentPlayer ? 'Your turn' : 'Waiting';
+      });
+    }
+
+    function updateToken(player) {
+      const token = tokens[player];
+      const progress = positions[player];
+      if (progress < 0) {
+        document.querySelector('.home.coral .base').append(token);
+        token.style.transform = '';
+        return;
+      }
+      const tile = cells.get((starts[player] + progress) % track.length);
+      tile.append(token);
+      token.style.transform = player === 1 && positions[0] >= 0 && tile === tokens[0].parentElement ? 'translate(25%, -25%)' : '';
+      if (player === 0 && positions[1] >= 0 && tile === tokens[1].parentElement) {
+        tokens[1].style.transform = 'translate(25%, -25%)';
+      }
+      if (player === 1 && positions[0] >= 0 && tile === tokens[0].parentElement) {
+        tokens[0].style.transform = 'translate(-25%, 25%)';
+      }
+    }
+
+    function setMessage(text) {
+      message.innerHTML = text;
+    }
+
+    rollButton.addEventListener('click', () => {
+      if (finished || rolling) return;
+      rolling = true;
+      rollButton.disabled = true;
+      die.classList.remove('rolling');
+      void die.offsetWidth;
+      die.classList.add('rolling');
+      let ticks = 0;
+      const animation = window.setInterval(() => {
+        die.textContent = dieFaces[Math.floor(Math.random() * 6)];
+        ticks++;
+        if (ticks === 7) {
+          window.clearInterval(animation);
+          const result = Math.floor(Math.random() * 6) + 1;
+          die.textContent = dieFaces[result - 1];
+          die.setAttribute('aria-label', `Dice shows ${result}`);
+          const player = currentPlayer;
+          const name = `Player ${player + 1}`;
+          let extraTurn = false;
+
+          if (positions[player] < 0) {
+            if (result === 6) {
+              positions[player] = 0;
+              updateToken(player);
+              extraTurn = true;
+              setMessage(`<strong>${name}</strong> is on the board! Roll again.`);
+              hint.textContent = 'A six earns another roll.';
+            } else {
+              setMessage(`<strong>${name}</strong> needs a 6 to start.`);
+              hint.textContent = 'No move this time. Pass the dice along.';
+            }
+          } else if (positions[player] + result > 24) {
+            setMessage(`<strong>${name}</strong> needs an exact roll to finish.`);
+            hint.textContent = 'Close! Pass the dice and try again next turn.';
+          } else {
+            positions[player] += result;
+            updateToken(player);
+            if (positions[player] === 24) {
+              finished = true;
+              setMessage(`<strong>${name} wins!</strong> Nicely played.`);
+              hint.textContent = 'A fine game. Start a new one?';
+            } else if (result === 6) {
+              extraTurn = true;
+              setMessage(`<strong>${name}</strong> rolled a 6. Go again!`);
+              hint.textContent = 'A six earns another roll.';
+            } else {
+              setMessage(`<strong>${name}</strong> moved ${result} spaces.`);
+              hint.textContent = 'Pass the dice to the next player.';
+            }
+          }
+
+          score.textContent = `${Math.max(0, positions[player])} / 24 spaces`;
+          if (!extraTurn && !finished) currentPlayer = 1 - currentPlayer;
+          updatePlayers();
+          rollButton.disabled = finished;
+          rolling = false;
+        }
+      }, 75);
+    });
+
+    document.querySelector('#reset').addEventListener('click', () => {
+      positions = [-1, -1];
+      currentPlayer = 0;
+      finished = false;
+      rolling = false;
+      tokens[0].remove();
+      tokens[1].remove();
+      document.querySelector('.home.coral .base').append(tokens[1]);
+      cells.get(starts[0]).append(tokens[0]);
+      tokens.forEach(token => token.style.transform = '');
+      die.textContent = '⚀';
+      die.setAttribute('aria-label', 'Dice not rolled yet');
+      score.textContent = '0 / 24 spaces';
+      hint.textContent = 'Roll a 6 to bring your token onto the board.';
+      setMessage('<strong>Player 1</strong>, roll to start.');
+      rollButton.disabled = false;
+      updatePlayers();
+    });
+  </script>
+</body>
+</html>
