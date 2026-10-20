@@ -929,7 +929,7 @@
           osc.frequency.setValueAtTime(f, t);
           osc.frequency.exponentialRampToValueAtTime(f * rand(1.25, 1.5), t + 0.05);
           gain.gain.setValueAtTime(0.0001, t);
-          gain.gain.exponentialRampToValueAtTime(0.02, t + 0.008);
+          gain.gain.exponentialRampToValueAtTime(0.045, t + 0.008);
           gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.06);
           osc.connect(gain).connect(pan);
           osc.start(t);
