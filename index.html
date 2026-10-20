@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f4f1e8">
-  <title>Ludo Sumbarta</title>
+  <meta name="description" content="Ludo Sumbarta — travel winding roads through Ancient and Future Sumbarta, conquer ten cities, and compete for the Royal Champion's crown in Fort Sumbarta.">
+  <title>Ludo Sumbarta — Fort Sumbarta</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@400;500;600;700;800&display=swap');
 
@@ -15,9 +16,7 @@
       --muted: #766579;
       --line: #ead1df;
       --green: #0aaf46;
-      --green-pale: #b6efc6;
       --coral: #ee2525;
-      --coral-pale: #ffc1c1;
       --yellow: #ffd31a;
       --blue: #087eea;
       --white: #fffef9;
@@ -38,100 +37,492 @@
       background-image: radial-gradient(#ebc8dc 0.7px, transparent 0.7px);
       background-size: 18px 18px;
     }
-    button { font: inherit; }
+    a { color: #c50067; font-weight: 600; }
+    img { max-width: 100%; height: auto; display: block; }
     .shell { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
-    .topbar { height: 82px; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #f5b2d4; }
-    .brand { display: flex; align-items: center; gap: 11px; font-size: 22px; font-weight: 800; letter-spacing: 0; color: #fff324; text-shadow: 0 2px 0 #e53c15, 0 4px 0 #a41425, 0 5px 5px #7e0b3980; }
-    .brand-mark { width: 40px; height: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 3px; padding: 5px; border: 2px solid #ff77be; border-radius: 12px; background: linear-gradient(145deg, #ff4baa, #a80055); box-shadow: inset 0 2px 3px #ffffff9c, 0 3px 0 #850047, 0 4px 7px #8d0b4855; transform: rotate(-6deg); }
-    .brand-mark i { border: 1px solid #ffffffb5; border-radius: 50%; background: linear-gradient(145deg, #65f593, var(--green)); box-shadow: 0 1px 2px #74134380; }
+    .topbar {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #f5b2d4;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff324;
+      text-shadow: 0 2px 0 #e53c15, 0 4px 0 #a41425, 0 5px 5px #7e0b3980;
+      text-decoration: none;
+    }
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+      padding: 5px;
+      border: 2px solid #ff77be;
+      border-radius: 12px;
+      background: linear-gradient(145deg, #ff4baa, #a80055);
+      box-shadow: inset 0 2px 3px #ffffff9c, 0 3px 0 #850047, 0 4px 7px #8d0b4855;
+      transform: rotate(-6deg);
+    }
+    .brand-mark i {
+      border: 1px solid #ffffffb5;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #65f593, var(--green));
+      box-shadow: 0 1px 2px #74134380;
+    }
     .brand-mark i:nth-child(2) { background: linear-gradient(145deg, #fff575, var(--yellow)); }
     .brand-mark i:nth-child(3) { background: linear-gradient(145deg, #7de2ff, var(--blue)); }
     .brand-mark i:nth-child(4) { background: linear-gradient(145deg, #ff9991, var(--coral)); }
-    .online { display: flex; align-items: center; gap: 8px; color: #fff; font: 500 11px 'DM Mono', monospace; text-transform: uppercase; padding: 8px 11px; border: 1px solid #ff85bf; border-radius: 20px; background: linear-gradient(180deg, #f72891, #c80069); box-shadow: inset 0 1px 1px #ffffff9c, 0 2px 0 #a90059; }
-    .online::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px #268a651c; }
+    .online {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #fff;
+      font: 500 11px 'DM Mono', monospace;
+      text-transform: uppercase;
+      padding: 8px 11px;
+      border: 1px solid #ff85bf;
+      border-radius: 20px;
+      background: linear-gradient(180deg, #f72891, #c80069);
+      box-shadow: inset 0 1px 1px #ffffff9c, 0 2px 0 #a90059;
+    }
+    .online::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 4px #268a651c;
+    }
 
     main { padding: 48px 0 60px; }
-    .intro { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 25px; }
-    .eyebrow { margin: 0 0 7px; color: #c50067; font: 500 11px 'DM Mono', monospace; letter-spacing: 0; text-transform: uppercase; }
-    h1 { margin: 0; color: #fff31a; font-size: clamp(37px, 6vw, 56px); font-weight: 800; line-height: .98; letter-spacing: 0; -webkit-text-stroke: 1px #ffec10; text-shadow: 2px 3px 0 #f83e16, 4px 6px 0 #a40835, 5px 8px 9px #78033a66; }
-    h1 span { color: #fff; font-size: .58em; -webkit-text-stroke: 0; text-shadow: 2px 3px 0 #065ed7, 4px 5px 0 #073c91, 5px 7px 8px #00326670; }
-    .intro-copy { max-width: 280px; margin: 0 0 3px; color: var(--muted); font-size: 14px; line-height: 1.5; }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 340px);
+      gap: 28px;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .eyebrow {
+      margin: 0 0 7px;
+      color: #c50067;
+      font: 500 11px 'DM Mono', monospace;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0 0 14px;
+      color: #fff31a;
+      font-size: clamp(32px, 5.5vw, 52px);
+      font-weight: 800;
+      line-height: 1.02;
+      -webkit-text-stroke: 1px #ffec10;
+      text-shadow: 2px 3px 0 #f83e16, 4px 6px 0 #a40835, 5px 8px 9px #78033a66;
+    }
+    .lead {
+      margin: 0 0 18px;
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.55;
+      font-weight: 500;
+    }
+    .hero-copy p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+    .hero-art {
+      padding: 14px;
+      border: 2px solid #ff7ebc;
+      border-radius: 12px;
+      background: linear-gradient(145deg, #ff48a4, #cf0068 68%, #970048);
+      box-shadow: inset 0 2px 3px #ffffffbd, 0 4px 0 #870044, 0 8px 20px #a90c5b29;
+    }
+    .hero-art img { border-radius: 6px; }
 
-    .game { display: grid; grid-template-columns: minmax(0, 1fr) 285px; gap: 18px; align-items: stretch; }
-    .board-wrap { min-width: 0; padding: clamp(12px, 2.4vw, 25px); border: 2px solid #ff7ebc; border-radius: 9px; background: linear-gradient(145deg, #ff48a4, #cf0068 68%, #970048); box-shadow: inset 0 2px 3px #ffffffbd, 0 4px 0 #870044, 0 8px 20px #a90c5b29; }
-    .board { position: relative; display: grid; grid-template-columns: repeat(7, 1fr); grid-template-rows: repeat(7, 1fr); gap: 5px; width: 100%; aspect-ratio: 1; padding: 8px; border: 2px solid #ffb8db; border-radius: 6px; background: linear-gradient(145deg, #fffef9, #f4e6ed); box-shadow: inset 0 2px 5px #8c164426; }
-    .tile { position: relative; display: grid; place-items: center; min-width: 0; border-radius: 4px; background: #f2f0e7; }
-    .tile.track { border: 1px solid #e8dfe1; box-shadow: inset 0 1px 1px #fff; }
-    .tile.safe::after { content: '✦'; color: #a8ad9e; font-size: clamp(10px, 2vw, 17px); }
-    .tile.center { background: conic-gradient(from 45deg, var(--yellow) 0 25%, var(--blue) 0 50%, var(--coral) 0 75%, var(--green) 0); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
-    .tile.center::after { content: ''; width: 43%; height: 43%; border: 2px solid #fffef9cc; border-radius: 50%; }
-    .home { grid-column: span 3; grid-row: span 3; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; place-items: center; gap: 7%; padding: 16%; border-radius: 5px; }
-    .home.green { grid-column: 1 / span 3; grid-row: 1 / span 3; background: linear-gradient(145deg, #36e66d, #078f32); box-shadow: inset 0 2px 3px #ffffffa3, inset 0 -4px 0 #057127; }
-    .home.coral { grid-column: 5 / span 3; grid-row: 1 / span 3; background: linear-gradient(145deg, #ff7770, #d60e26); box-shadow: inset 0 2px 3px #ffffffa3, inset 0 -4px 0 #ac071c; }
-    .home.blue { grid-column: 1 / span 3; grid-row: 5 / span 3; background: linear-gradient(145deg, #67d9ff, #0872dd); box-shadow: inset 0 2px 3px #ffffffa3, inset 0 -4px 0 #0751b4; }
-    .home.yellow { grid-column: 5 / span 3; grid-row: 5 / span 3; background: linear-gradient(145deg, #fff36b, #eab500); box-shadow: inset 0 2px 3px #ffffffa3, inset 0 -4px 0 #bd8000; }
-    .base { width: 100%; height: 100%; max-width: 38px; max-height: 38px; border: 2px solid #fff; border-radius: 50%; background: linear-gradient(145deg, #fff, #f0e8e6); box-shadow: inset 0 2px 4px #182d2b14, 0 2px 2px #5e11344a; }
-    .tile.start-green { background: linear-gradient(145deg, #55ef89, #079941); }
-    .tile.start-coral { background: linear-gradient(145deg, #ff8282, #de101a); }
-    .tile.start-blue { background: linear-gradient(145deg, #75dcff, #0872dc); }
-    .tile.start-yellow { background: linear-gradient(145deg, #fff368, #eab500); }
-    .token { position: absolute; z-index: 2; width: 68%; height: 68%; max-width: 29px; max-height: 29px; display: grid; place-items: center; border: 2px solid var(--white); border-radius: 50%; color: white; font-size: clamp(8px, 1.4vw, 12px); font-weight: 800; box-shadow: 0 2px 4px #172b2938; transition: left 260ms ease, top 260ms ease, transform 160ms ease; }
-    .token.green { background: var(--green); }
-    .token.coral { background: var(--coral); }
-    .token.blue { background: var(--blue); }
-    .token.yellow { background: var(--yellow); }
-    .base .token { width: 82%; height: 82%; }
+    .section {
+      margin-bottom: 36px;
+      padding: 22px 24px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--white);
+      box-shadow: 0 3px 0 #d5d5ca;
+    }
+    .section h2 {
+      margin: 0 0 6px;
+      font-size: 22px;
+      font-weight: 800;
+    }
+    .section .sub {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
 
-    .panel { display: flex; flex-direction: column; padding: 20px; border: 1px solid var(--line); border-radius: 8px; background: var(--white); box-shadow: 0 3px 0 #d5d5ca; }
-    .panel-label { margin: 0 0 12px; color: var(--muted); font: 500 10px 'DM Mono', monospace; letter-spacing: 0; text-transform: uppercase; }
-    .players { display: grid; gap: 8px; }
-    .player { display: flex; align-items: center; gap: 11px; min-height: 54px; padding: 8px 10px; border: 1px solid transparent; border-radius: 5px; transition: background 160ms ease, border-color 160ms ease; }
-    .player.active.green { border-color: #abd5b9; background: #edf7ef; }
-    .player.active.coral { border-color: #f0b7a7; background: #fff1eb; }
-    .player-dot { flex: 0 0 auto; width: 12px; height: 12px; border-radius: 50%; background: var(--green); }
-    .player.coral .player-dot { background: var(--coral); }
-    .player-name { flex: 1; font-size: 14px; font-weight: 600; }
-    .player-status { color: var(--muted); font: 11px 'DM Mono', monospace; }
-    .turn { min-height: 62px; display: flex; align-items: center; gap: 10px; margin: 17px 0; padding: 12px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); color: var(--muted); font-size: 13px; line-height: 1.35; }
-    .turn strong { color: var(--ink); }
-    .die { flex: 0 0 auto; width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 7px; background: white; color: var(--ink); font-size: 22px; font-weight: 700; box-shadow: 0 2px 0 #e5e3da; }
-    .die.rolling { animation: tumble 450ms ease; }
-    @keyframes tumble { 50% { transform: rotate(180deg) scale(.82); } }
-    .roll { min-height: 46px; display: flex; align-items: center; justify-content: center; gap: 9px; border: 0; border-radius: 5px; background: var(--ink); color: white; font-size: 14px; font-weight: 700; cursor: pointer; transition: background 150ms ease, transform 150ms ease; }
-    .roll:hover:not(:disabled) { background: #c90069; transform: translateY(-1px); }
-    .roll:focus-visible, .reset:focus-visible { outline: 3px solid #e5b63d; outline-offset: 3px; }
-    .roll:disabled { cursor: default; opacity: .55; }
-    .roll svg { width: 17px; height: 17px; }
-    .hint { min-height: 36px; margin: 11px 0 0; color: var(--muted); font-size: 12px; line-height: 1.45; text-align: center; }
-    .panel-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 15px; border-top: 1px solid var(--line); }
-    .score { font: 11px 'DM Mono', monospace; color: var(--muted); }
-    .reset { padding: 7px 0 7px 8px; border: 0; background: transparent; color: var(--ink); font-size: 12px; font-weight: 600; cursor: pointer; }
-    .footer { display: flex; justify-content: space-between; gap: 16px; margin-top: 22px; color: var(--muted); font: 10px 'DM Mono', monospace; text-transform: uppercase; }
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    .tracks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .track {
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, #fff, #faf5f8);
+    }
+    .track h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .track p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .track.ancient h3 { color: #8a5a00; }
+    .track.future h3 { color: #087eea; }
+
+    .travelers {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 12px;
+    }
+    .traveler {
+      text-align: center;
+      padding: 12px 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+    .traveler img {
+      width: 88px;
+      height: 88px;
+      margin: 0 auto 10px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #ffb8db;
+      box-shadow: 0 2px 8px #a90c5b22;
+    }
+    .traveler strong {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+    .traveler span {
+      font: 10px 'DM Mono', monospace;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .visual-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 4px;
+    }
+    .visual-row figure {
+      margin: 0;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    .visual-row figcaption {
+      padding: 10px 12px;
+      font: 10px 'DM Mono', monospace;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: #faf8f5;
+      border-top: 1px solid var(--line);
+    }
+
+    .cities {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .cities th,
+    .cities td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+    }
+    .cities th {
+      font: 500 10px 'DM Mono', monospace;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .cities tr:last-child td { border-bottom: 0; }
+
+    .games {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 12px;
+    }
+    .game-tile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      text-align: center;
+    }
+    .game-tile img {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+    }
+    .game-tile span {
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .kingdoms {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 20px;
+      align-items: start;
+    }
+    .kingdom-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .kingdom-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+    .kingdom-list li strong { color: #c50067; }
+    .kingdom-list li:last-child { border-bottom: 0; }
+
+    .how ol {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .how li { margin-bottom: 8px; }
+    .how li strong { color: var(--ink); }
+
+    .site-footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 20px 0 8px;
+      border-top: 2px solid #f5b2d4;
+      color: var(--muted);
+      font: 10px 'DM Mono', monospace;
+      text-transform: uppercase;
+    }
 
     @media (max-width: 720px) {
       .shell { width: min(560px, calc(100% - 28px)); }
       .topbar { height: 66px; }
       main { padding: 30px 0 36px; }
-      .intro { align-items: start; flex-direction: column; gap: 8px; margin-bottom: 17px; }
-      .intro-copy { max-width: 360px; }
-      .game { grid-template-columns: 1fr; gap: 12px; }
-      .board-wrap { padding: 12px; }
-      .board { gap: 4px; padding: 6px; }
-      .panel { padding: 15px; }
-      .players { grid-template-columns: 1fr 1fr; }
-      .player { min-height: 48px; gap: 8px; padding: 7px; }
-      .player-name { font-size: 12px; }
-      .player-status { font-size: 9px; }
-      .turn { min-height: 54px; margin: 12px 0; }
-      .panel-bottom { margin-top: 10px; }
-      .footer { font-size: 9px; }
+      .hero { grid-template-columns: 1fr; }
+      .tracks { grid-template-columns: 1fr; }
+      .visual-row { grid-template-columns: 1fr; }
+      .kingdoms { grid-template-columns: 1fr; }
+      .cities { font-size: 12px; }
+      .cities th:nth-child(3),
+      .cities td:nth-child(3) { display: none; }
     }
-    body { display: grid; min-height: 100vh; min-height: 100svh; place-items: center; padding: 16px; background: #050207; }
-    .logo { display: block; width: min(100%, 768px); height: auto; }
   </style>
 </head>
 <body>
-  <img class="logo" src="logo.svg" alt="Ludo Sumbarta">
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="#">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        Fort Sumbarta
+      </a>
+      <span class="online">Kingdom of Sumbarta</span>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Ludo Sumbarta · Android</p>
+          <h1>Ludo Sumbarta</h1>
+          <p class="lead">Welcome to Sumbarta, a kingdom where games are the greatest sport, and every hero dreams of becoming the Royal Champion.</p>
+          <p>Walk into Fort Sumbarta — a fortress whose halls and stalls are the game menu. The crown campaign is <strong>Ludo Sumbarta</strong>: travel winding roads, recover the royal key, and win four-player Ludo in each of the ten cities.</p>
+          <p><strong>200 stages</strong> across two paths — <em>Ancient Sumbarta</em> (1000 BC–100 BC) and <em>Future Sumbarta</em> (3000 AD–4000 AD) — each revisiting the same ten cities as they rise, prosper, and transform.</p>
+        </div>
+        <div class="hero-art">
+          <img src="assets/ludo_logo.webp" width="340" height="340" alt="Ludo Sumbarta board logo">
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>The party of six</h2>
+        <p class="sub">Baby, Kael, Mani, Taro, Maya, and Borin walk the Sumbarta road as one party. You play as the lead traveler.</p>
+        <div class="travelers">
+          <article class="traveler">
+            <img src="assets/fort_visitor_baby_portrait.webp" alt="Baby Dufaan">
+            <strong>Baby Dufaan</strong>
+            <span>Young adventurer</span>
+          </article>
+          <article class="traveler">
+            <img src="assets/fort_visitor_kael_portrait.webp" alt="Kael Gobu">
+            <strong>Kael Gobu</strong>
+            <span>Calm strategist</span>
+          </article>
+          <article class="traveler">
+            <img src="assets/fort_visitor_mani_portrait.webp" alt="Mani Dufaan">
+            <strong>Mani Dufaan</strong>
+            <span>Fearless explorer</span>
+          </article>
+          <article class="traveler">
+            <img src="assets/fort_visitor_taro_portrait.webp" alt="Taro Domizon">
+            <strong>Taro Domizon</strong>
+            <span>Cheerful inventor</span>
+          </article>
+          <article class="traveler">
+            <img src="assets/fort_visitor_maya_portrait.webp" alt="Maya Mersace">
+            <strong>Maya Mersace</strong>
+            <span>Clever rogue</span>
+          </article>
+          <article class="traveler">
+            <img src="assets/fort_visitor_borin_portrait.webp" alt="Borin Gubatti">
+            <strong>Borin Gubatti</strong>
+            <span>Gentle giant</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Two roads, one kingdom</h2>
+        <p class="sub">Swipe between Ancient and Future on the fort map — ten centuries per track, ten cities per century.</p>
+        <div class="tracks">
+          <div class="track ancient">
+            <h3>Ancient Sumbarta</h3>
+            <p>From the River Oath and the founding of Sumbarta through royal roads, the Great Canal, rival crowns, the Black Monsoon, and the greatest Royal Games beneath uneasy skies — until the six travelers save the kingdom into everlasting prosperity.</p>
+          </div>
+          <div class="track future">
+            <h3>Future Sumbarta</h3>
+            <p>In 3000 AD the River Oath is recoded as light, and Sumbarta wakes on holo-roads. Neon twins of every ancient city, plasma guilds, shield-arcologies, and at Horizon 4000 the path becomes a beam of time.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>The ten cities of Sumbarta</h2>
+        <p class="sub">Every stage ends at a city gate — then a full Ludo board against named rivals from the ancient and chrome eras.</p>
+        <table class="cities">
+          <thead>
+            <tr>
+              <th>City</th>
+              <th>Ancient title</th>
+              <th>Resource</th>
+              <th>Future name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Vardhana</td><td>Meadow Gateway</td><td>amber</td><td>Vardhana Prime</td></tr>
+            <tr><td>Ayaskara</td><td>Iron Dune Quarry</td><td>iron</td><td>Ayaskara Node</td></tr>
+            <tr><td>Varshana</td><td>Monsoon Serpent Trail</td><td>sunstone</td><td>Varshana Grid</td></tr>
+            <tr><td>Haritavana</td><td>Emerald Canopy</td><td>emerald</td><td>Haritavana Arc</td></tr>
+            <tr><td>Rajatavana</td><td>Silver Shadow Forest</td><td>silver</td><td>Rajatavana Spire</td></tr>
+            <tr><td>Suvarnagiri</td><td>Goldforge Highlands</td><td>gold</td><td>Suvarnagiri Core</td></tr>
+            <tr><td>Tamrapatha</td><td>Copper Savannah</td><td>copper</td><td>Tamrapatha Dock</td></tr>
+            <tr><td>Chandrasaila</td><td>Moonstone Peaks</td><td>moonstone</td><td>Chandrasaila Orbit</td></tr>
+            <tr><td>Nilahima</td><td>Sapphire Icefield</td><td>sapphire</td><td>Nilahima Vault</td></tr>
+            <tr><td>Sphatika</td><td>Crystal Crown</td><td>ice crystal</td><td>Sphatika Nexus</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section how">
+        <h2>How the journey works</h2>
+        <p class="sub">Born of Surya's light — roll the die, walk the road, win the Royal Games.</p>
+        <ol>
+          <li><strong>Road stages</strong> — 50 steps of keys, mining, shields, tunnels, snakes, pits, monsters, and coins, then the city gate.</li>
+          <li><strong>City match</strong> — move all four pawns home on a classic Ludo board against three rivals, each with a distinct play style.</li>
+          <li><strong>Objectives</strong> — recover the royal key; on many stages, secure three resource deposits before the gate opens.</li>
+          <li><strong>Traveler's Home</strong> — grow your homestead in Fort Sumbarta as you conquer cities and earn stars.</li>
+        </ol>
+      </section>
+
+      <section class="section">
+        <h2>Fort Sumbarta courtyard</h2>
+        <p class="sub">Enter through the south gate — Carrom, Callbreak, Snakes &amp; Ladders, Humming Bird, puzzles, and more live in the halls around the Royal Keep.</p>
+        <div class="visual-row">
+          <figure>
+            <img src="assets/landing_courtyard_painterly.webp" alt="Fort Sumbarta courtyard">
+            <figcaption>Fort Sumbarta · courtyard</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/landing_fort_map_districts_old.webp" alt="Overhead plan of Fort Sumbarta">
+            <figcaption>Royal fortress · overhead plan</figcaption>
+          </figure>
+        </div>
+        <div class="games" style="margin-top: 18px;">
+          <div class="game-tile">
+            <img src="assets/ludo_sumbarta_icon.webp" alt="">
+            <span>Ludo Sumbarta</span>
+          </div>
+          <div class="game-tile">
+            <img src="assets/carrom_icon.webp" alt="">
+            <span>Carrom</span>
+          </div>
+          <div class="game-tile">
+            <img src="assets/logo_callbreak.webp" alt="">
+            <span>Callbreak</span>
+          </div>
+          <div class="game-tile">
+            <img src="assets/snk_btn_small.webp" alt="">
+            <span>Snakes &amp; Ladders</span>
+          </div>
+          <div class="game-tile">
+            <img src="assets/hmb_icon.webp" alt="">
+            <span>Humming Bird</span>
+          </div>
+          <div class="game-tile">
+            <img src="assets/puzzle_15.webp" alt="">
+            <span>15-Puzzle</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Kingdoms around Sumbarta</h2>
+        <p class="sub">From the western plains to the high snow peaks — real Jammu-region geography frames the fort.</p>
+        <div class="kingdoms">
+          <figure style="margin:0;border-radius:8px;overflow:hidden;border:1px solid var(--line);">
+            <img src="assets/landing_kingdoms_handdrawn.webp" alt="Map of kingdoms around Sumbarta">
+          </figure>
+          <ul class="kingdom-list">
+            <li><strong>Sumbarta</strong> — the royal seat</li>
+            <li><strong>Trikuta Vale</strong></li>
+            <li><strong>Chenab Crown</strong></li>
+            <li><strong>Doda Highlands</strong></li>
+            <li><strong>Kishtwar Peaks</strong></li>
+            <li><strong>Ravi Marches</strong></li>
+            <li><strong>Kathua Plains</strong></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Ludo Sumbarta · Fort Sumbarta</span>
+      <span>Travel winding roads · Conquer the ten cities</span>
+    </footer>
+  </div>
 </body>
 </html>
