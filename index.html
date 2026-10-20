@@ -7,8 +7,16 @@
   <meta name="description" content="Ludo Sumbarta — travel winding roads through Ancient and Future Sumbarta, conquer ten cities, and compete for the Royal Champion's crown in Fort Sumbarta.">
   <title>Ludo Sumbarta — Fort Sumbarta</title>
   <link rel="icon" href="assets/ludo_sumbarta_icon.webp" type="image/webp">
+  <link rel="apple-touch-icon" href="assets/ludo_sumbarta_icon.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ludo Sumbarta — Fort Sumbarta">
+  <meta property="og:description" content="Travel winding roads through Ancient and Future Sumbarta, conquer ten cities, and become the Royal Champion.">
+  <meta property="og:image" content="assets/ludo_sumbarta_icon.webp">
+  <meta name="twitter:card" content="summary">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@400;500;600;700;800&display=swap">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@400;500;600;700;800&display=swap');
 
     :root {
       color-scheme: light;
@@ -144,11 +152,46 @@
       letter-spacing: 0.04em;
       text-transform: uppercase;
     }
-    .hero-wordmark {
-      width: min(100%, 420px);
-      margin: 0 0 16px;
-      filter: drop-shadow(2px 4px 0 #f83e1644);
+    h1 {
+      margin: 0 0 18px;
+      color: #fff31a;
+      font-size: clamp(42px, 7vw, 72px);
+      font-weight: 800;
+      line-height: 0.95;
+      -webkit-text-stroke: 1px #ffec10;
+      text-shadow: 2px 3px 0 #f83e16, 4px 6px 0 #a40835, 5px 8px 10px #78033a66;
     }
+    h1 span {
+      display: block;
+      color: #fff;
+      font-size: 0.62em;
+      -webkit-text-stroke: 0;
+      text-shadow: 2px 3px 0 #065ed7, 4px 5px 0 #073c91, 5px 7px 8px #00326670;
+    }
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px 18px;
+      margin-top: 22px;
+    }
+    .btn-play {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      border-radius: 12px;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      background: linear-gradient(180deg, #2a3836, var(--ink));
+      box-shadow: inset 0 1px 0 #ffffff33, 0 3px 0 #0c1312, 0 8px 18px #172b2930;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+    .btn-play:hover { text-decoration: none; background: linear-gradient(180deg, #f72891, var(--magenta)); transform: translateY(-2px); }
+    .btn-play svg { width: 20px; height: 20px; }
+    .btn-play small { display: block; font: 500 9px 'DM Mono', monospace; text-transform: uppercase; opacity: 0.8; }
+    .btn-play:focus-visible, .nav a:focus-visible, .brand:focus-visible { outline: 3px solid #e5b63d; outline-offset: 3px; }
     .lead {
       margin: 0 0 20px;
       font-size: clamp(16px, 2.2vw, 19px);
@@ -340,7 +383,7 @@
     /* —— Cities —— */
     .city-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      grid-template-columns: repeat(5, 1fr);
       gap: 12px;
     }
     .city-card {
@@ -431,6 +474,11 @@
       border: 1px solid var(--line);
       box-shadow: 0 4px 16px #172b2910;
     }
+    .fort-visual img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
     .fort-visual figcaption {
       padding: 10px 14px;
       font: 500 10px 'DM Mono', monospace;
@@ -441,7 +489,7 @@
     }
     .games {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(7, 1fr);
       gap: 10px;
     }
     .game-tile {
@@ -464,13 +512,13 @@
     }
     .game-tile.featured {
       grid-column: span 2;
-      grid-row: span 2;
-      min-height: auto;
+      flex-direction: row;
+      gap: 14px;
       padding: 20px;
       border-color: #ffb8db;
       background: linear-gradient(145deg, #fff, #fff0f8);
     }
-    .game-tile.featured img { width: 88px; height: 88px; }
+    .game-tile.featured img { width: 72px; height: 72px; }
     .game-tile img { width: 48px; height: 48px; object-fit: contain; }
     .game-tile span { font-size: 12px; font-weight: 700; line-height: 1.25; }
     .game-tile.featured span { font-size: 15px; }
@@ -534,8 +582,9 @@
     @media (max-width: 960px) {
       .travelers { grid-template-columns: repeat(3, 1fr); }
       .steps { grid-template-columns: repeat(2, 1fr); }
+      .city-grid { grid-template-columns: repeat(2, 1fr); }
       .games { grid-template-columns: repeat(3, 1fr); }
-      .game-tile.featured { grid-column: span 3; grid-row: span 1; flex-direction: row; justify-content: flex-start; gap: 16px; }
+      .game-tile.featured { grid-column: span 3; }
     }
 
     @media (max-width: 720px) {
@@ -551,6 +600,7 @@
       .steps { grid-template-columns: 1fr; }
       .games { grid-template-columns: repeat(2, 1fr); }
       .game-tile.featured { grid-column: span 2; }
+      .stat { flex: 1 1 40%; }
     }
   </style>
 </head>
@@ -575,7 +625,7 @@
         <section class="hero">
           <div class="hero-copy">
             <p class="eyebrow">Android · Kingdom of Sumbarta</p>
-            <img class="hero-wordmark" src="logo.svg" width="420" height="420" alt="Ludo Sumbarta">
+            <h1>Ludo <span>Sumbarta</span></h1>
             <p class="lead">Welcome to Sumbarta, a kingdom where games are the greatest sport, and every hero dreams of becoming the Royal Champion.</p>
             <p>Fort Sumbarta is a fortress whose halls and stalls are the game menu. The crown campaign is <strong>Ludo Sumbarta</strong>: winding roads, royal keys, and four-player Ludo in every city.</p>
             <div class="stats">
@@ -583,6 +633,12 @@
               <div class="stat"><strong>10</strong><span>Cities</span></div>
               <div class="stat"><strong>2</strong><span>Timelines</span></div>
               <div class="stat"><strong>6</strong><span>Travelers</span></div>
+            </div>
+            <div class="cta">
+              <a class="btn-play" href="https://play.google.com/store/apps/details?id=com.sumbarta.ludo" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 2.5v19l10.2-9.5zm11.6 10.8 2.6 2.4-11.3 6.4zm0-2.6L6.9 1.9l11.3 6.4zM19.6 9.1l2.4 1.4c.9.6.9 2 0 2.6l-2.4 1.4-2.8-2.7z"/></svg>
+                <span><small>Get it on</small>Google Play</span>
+              </a>
             </div>
           </div>
           <div class="hero-visual">
@@ -772,8 +828,12 @@
     </main>
 
     <footer class="site-footer">
-      <span>Ludo Sumbarta · Fort Sumbarta</span>
-      <a href="https://sumbarta.in" rel="noopener">sumbarta.in</a>
+      <span>Copyright © 2026 Ludo Sumbarta</span>
+      <span>
+        <a href="https://sumbarta.in/privacy_policy_ludo_sumbarta.html" rel="noopener">Privacy policy</a>
+        ·
+        <a href="https://sumbarta.in" rel="noopener">sumbarta.in</a>
+      </span>
     </footer>
   </div>
 </body>
