@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 768" role="img" aria-labelledby="title description">
+  <title id="title">Ludo Sumbarta</title>
+  <desc id="description">A glossy four-color Ludo board inside a magenta frame, with bright yellow Ludo Sumbarta lettering.</desc>
+  <defs>
+    <linearGradient id="frame" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#ff8bd0"/>
+      <stop offset=".22" stop-color="#ff1689"/>
+      <stop offset=".62" stop-color="#c90069"/>
+      <stop offset="1" stop-color="#7200bd"/>
+    </linearGradient>
+    <linearGradient id="pinkEdge" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#ffb0dd"/>
+      <stop offset=".22" stop-color="#ff1887"/>
+      <stop offset=".7" stop-color="#a50050"/>
+      <stop offset="1" stop-color="#ed49f7"/>
+    </linearGradient>
+    <linearGradient id="yellow" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#fff963"/>
+      <stop offset=".55" stop-color="#ffe600"/>
+      <stop offset="1" stop-color="#ffb900"/>
+    </linearGradient>
+    <linearGradient id="red" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#ff1713"/>
+      <stop offset="1" stop-color="#9b0012"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#138eff"/>
+      <stop offset="1" stop-color="#0038b4"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#22e828"/>
+      <stop offset="1" stop-color="#007b16"/>
+    </linearGradient>
+    <linearGradient id="blueText" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#158dff"/>
+      <stop offset="1" stop-color="#0039bb"/>
+    </linearGradient>
+    <filter id="shadow" x="-.2" y="-.2" width="1.4" height="1.5">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="8"/>
+      <feOffset dy="10"/>
+      <feComponentTransfer><feFuncA type="linear" slope=".65"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="letterShadow" x="-.15" y="-.2" width="1.3" height="1.5">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dy="12"/>
+      <feComponentTransfer><feFuncA type="linear" slope=".8"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="768" height="768" fill="#050207"/>
+  <g filter="url(#shadow)">
+    <rect x="9" y="9" width="750" height="750" rx="92" fill="url(#frame)" stroke="#ff55b2" stroke-width="4"/>
+    <rect x="20" y="20" width="728" height="728" rx="83" fill="none" stroke="url(#pinkEdge)" stroke-width="10"/>
+    <rect x="30" y="30" width="708" height="708" rx="76" fill="none" stroke="#ff93d1" stroke-width="3" opacity=".85"/>
+  </g>
+
+  <g filter="url(#shadow)" stroke="#ffb5dc" stroke-width="4">
+    <rect x="83" y="76" width="239" height="315" rx="48" fill="url(#yellow)"/>
+    <rect x="450" y="76" width="237" height="315" rx="48" fill="url(#blue)"/>
+    <rect x="83" y="395" width="239" height="315" rx="12" fill="url(#green)"/>
+    <rect x="450" y="395" width="237" height="315" rx="12" fill="url(#red)"/>
+  </g>
+
+  <g fill="#fffdf8" stroke="#fff" stroke-width="3" filter="url(#shadow)">
+    <circle cx="163" cy="157" r="23"/><circle cx="251" cy="157" r="23"/>
+    <circle cx="520" cy="157" r="23"/><circle cx="609" cy="157" r="23"/>
+    <circle cx="163" cy="635" r="23"/><circle cx="251" cy="635" r="23"/>
+    <circle cx="520" cy="635" r="23"/><circle cx="609" cy="635" r="23"/>
+  </g>
+
+  <g stroke="#d4c5b8" stroke-width="2">
+    <path fill="#fffaf1" d="M322 78h128v313H322z"/>
+    <path fill="#fffaf1" d="M322 395h128v313H322z"/>
+    <path fill="#fffaf1" d="M84 322h238v73H84z"/>
+    <path fill="#fffaf1" d="M450 322h236v73H450z"/>
+    <path fill="#ffd400" d="M367 78h43v313h-43zM367 395h43v313h-43z"/>
+    <path fill="#ffd400" d="M84 337h238v43H84zM450 337h236v43H450z"/>
+    <path d="M322 122h128M322 166h128M322 210h128M322 254h128M322 298h128M322 342h128M322 386h128M322 430h128M322 474h128M322 518h128M322 562h128M322 606h128M322 650h128" fill="none"/>
+    <path d="M84 322v73M128 322v73M172 322v73M216 322v73M260 322v73M304 322v73M452 322v73M496 322v73M540 322v73M584 322v73M628 322v73M672 322v73" fill="none"/>
+  </g>
+
+  <g font-family="DejaVu Sans, Arial Black, sans-serif" font-weight="900" text-anchor="middle" paint-order="stroke fill" filter="url(#letterShadow)">
+    <text x="388" y="385" font-size="206" letter-spacing="-13" fill="#4a000c" stroke="#59000b" stroke-width="30" stroke-linejoin="round" transform="rotate(-2 388 320)">LUDO</text>
+    <text x="384" y="364" font-size="206" letter-spacing="-13" fill="url(#yellow)" stroke="url(#red)" stroke-width="27" stroke-linejoin="round" transform="rotate(-2 384 310)">LUDO</text>
+    <text x="405" y="528" font-size="104" letter-spacing="-5" fill="#061b75" stroke="#062d98" stroke-width="27" stroke-linejoin="round">Sumbarta</text>
+    <text x="402" y="515" font-size="104" letter-spacing="-5" fill="url(#yellow)" stroke="url(#blueText)" stroke-width="21" stroke-linejoin="round">Sumbarta</text>
+  </g>
+</svg>
