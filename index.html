@@ -577,6 +577,105 @@
     .kingdom-list li strong { color: var(--magenta); }
     .kingdom-list li:last-child { border-bottom: 0; }
 
+    .story-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    .story-tab {
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--muted);
+      font: 600 13px 'Outfit', sans-serif;
+      cursor: pointer;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+    .story-tab:hover { border-color: #ffb8db; color: var(--magenta); }
+    .story-tab[aria-pressed="true"] {
+      border-color: var(--magenta);
+      background: linear-gradient(180deg, #f72891, var(--magenta));
+      color: #fff;
+      box-shadow: 0 2px 0 var(--magenta-deep);
+    }
+    .story-tab:focus-visible { outline: 3px solid #e5b63d; outline-offset: 3px; }
+    .stories {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .story {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      color: inherit;
+      font-weight: inherit;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .story:hover {
+      text-decoration: none;
+      transform: translateY(-4px);
+      border-color: #ffb8db;
+      box-shadow: 0 10px 28px #a90c5b22;
+    }
+    .story:focus-visible { outline: 3px solid #e5b63d; outline-offset: 3px; }
+    .story[hidden] { display: none; }
+    .story-art {
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: #f4e6ed;
+    }
+    .story-art img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .story:hover .story-art img { transform: scale(1.04); }
+    .story-art.garden {
+      display: grid;
+      place-items: center;
+      background: linear-gradient(150deg, #dff3e4, #b6e6c6);
+    }
+    .story-art.garden img { width: 96px; height: 96px; object-fit: contain; }
+    .story-body {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      gap: 8px;
+      padding: 16px 18px 18px;
+    }
+    .story-kind {
+      align-self: flex-start;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font: 500 9px 'DM Mono', monospace;
+      text-transform: uppercase;
+    }
+    .story-kind.chronicle { background: #fff3d0; color: #8a5a00; }
+    .story-kind.fort { background: #ffe4f1; color: var(--magenta); }
+    .story-kind.folk { background: #edf7ef; color: #078f32; }
+    .story h3 { margin: 0; font-size: 17px; font-weight: 800; line-height: 1.25; }
+    .story p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+    .story-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font: 500 10px 'DM Mono', monospace;
+      text-transform: uppercase;
+    }
+    .story-meta span:last-child { color: var(--magenta); }
+    .stories-more { margin: 18px 0 0; font-size: 14px; }
+
     .site-footer {
       display: flex;
       flex-wrap: wrap;
@@ -657,6 +756,7 @@
       <nav class="nav" aria-label="Page sections">
         <a href="#party">Travelers</a>
         <a href="#journey">Journey</a>
+        <a href="#stories">Stories</a>
         <a href="#cities">Cities</a>
         <a href="#fort">Fort</a>
         <button class="sound-toggle" type="button" aria-pressed="true">Birdsong on</button>
@@ -756,6 +856,76 @@
             </div>
           </article>
         </div>
+      </section>
+
+      <section class="section" id="stories">
+        <div class="section-head">
+          <h2>Tales of Sumbarta</h2>
+          <p class="sub">Chronicles of the six travelers, notes from the fort, and folk tales from the hills of Jammu.</p>
+        </div>
+        <div class="story-tabs" role="group" aria-label="Filter stories">
+          <button class="story-tab" type="button" data-filter="all" aria-pressed="true">All stories</button>
+          <button class="story-tab" type="button" data-filter="chronicle" aria-pressed="false">Chronicles</button>
+          <button class="story-tab" type="button" data-filter="fort" aria-pressed="false">Fort notes</button>
+          <button class="story-tab" type="button" data-filter="folk" aria-pressed="false">Folk tales</button>
+        </div>
+        <div class="stories">
+          <a class="story" data-kind="chronicle" href="https://talesofsumbarta.blogspot.com/2026/09/ludo-sumbarta-river-oath-1000900-bc.html" target="_blank" rel="noopener">
+            <div class="story-art"><img src="assets/stories/river-oath.jpg" width="720" height="450" alt="" loading="lazy"></div>
+            <div class="story-body">
+              <span class="story-kind chronicle">Chronicle · 1000–900 BC</span>
+              <h3>The River Oath</h3>
+              <p>“In the year the meadows still had no kingdom, Kael Gobu would later write, six people walked out of a reed town and called the grass a road.”</p>
+              <div class="story-meta"><span>Sep 2026 · 19 min read</span><span>Read →</span></div>
+            </div>
+          </a>
+          <a class="story" data-kind="chronicle" href="https://talesofsumbarta.blogspot.com/2026/09/ludo-sumbarta-oath-in-light-30003100-ad.html" target="_blank" rel="noopener">
+            <div class="story-art"><img src="assets/stories/oath-in-light.jpg" width="720" height="450" alt="" loading="lazy"></div>
+            <div class="story-body">
+              <span class="story-kind chronicle">Chronicle · 3000–3100 AD</span>
+              <h3>The Oath in Light</h3>
+              <p>“In the year the river learned to glow, Kael Gobu wrote again. He did not write on bark. He wrote in a pane of light that hung above his palm.”</p>
+              <div class="story-meta"><span>Sep 2026 · 19 min read</span><span>Read →</span></div>
+            </div>
+          </a>
+          <a class="story" data-kind="fort" href="https://talesofsumbarta.blogspot.com/2026/09/fort-sumbarta-where-games-are-greatest.html" target="_blank" rel="noopener">
+            <div class="story-art"><img src="assets/stories/fort-sumbarta.jpg" width="720" height="450" alt="" loading="lazy"></div>
+            <div class="story-body">
+              <span class="story-kind fort">Fort note</span>
+              <h3>Fort Sumbarta: Where Games Are the Greatest Sport</h3>
+              <p>“Enter through the south bridge. That is the first rule of Fort Sumbarta, and the kindest.”</p>
+              <div class="story-meta"><span>Sep 2026 · 4 min read</span><span>Read →</span></div>
+            </div>
+          </a>
+          <a class="story" data-kind="fort" href="https://talesofsumbarta.blogspot.com/2026/09/garden-court-humming-bird-courtyard.html" target="_blank" rel="noopener">
+            <div class="story-art garden"><img src="assets/hmb_icon.webp" alt="" loading="lazy"></div>
+            <div class="story-body">
+              <span class="story-kind fort">Fort note</span>
+              <h3>Garden Court: The Humming Bird Courtyard</h3>
+              <p>“Garden Court does not look like a battlefield. That is its trick.”</p>
+              <div class="story-meta"><span>Sep 2026 · 5 min read</span><span>Read →</span></div>
+            </div>
+          </a>
+          <a class="story" data-kind="folk" href="https://talesofsumbarta.blogspot.com/2026/08/the-boy-outside-fort-of-sumbarta.html" target="_blank" rel="noopener">
+            <div class="story-art"><img src="assets/stories/boy-outside-fort.jpg" width="720" height="450" alt="" loading="lazy"></div>
+            <div class="story-body">
+              <span class="story-kind folk">Folk tale · c. 1000 BC</span>
+              <h3>The Boy Outside the Fort of Sumbarta</h3>
+              <p>A tale from the hills of Jammu. “Just outside the great fort lived a young village boy named Aran.”</p>
+              <div class="story-meta"><span>Aug 2026 · 3 min read</span><span>Read →</span></div>
+            </div>
+          </a>
+          <a class="story" data-kind="folk" href="https://talesofsumbarta.blogspot.com/2026/08/grandmothers-tale-of-boy-in-tree.html" target="_blank" rel="noopener">
+            <div class="story-art"><img src="assets/stories/grandmothers-tale.jpg" width="720" height="450" alt="" loading="lazy"></div>
+            <div class="story-body">
+              <span class="story-kind folk">Folk tale</span>
+              <h3>Grandmother's Tale of the Boy in the Tree</h3>
+              <p>“That night, beside the small fire outside their house, Aran's grandmother told him an old tale passed down through many generations.”</p>
+              <div class="story-meta"><span>Aug 2026 · 2 min read</span><span>Read →</span></div>
+            </div>
+          </a>
+        </div>
+        <p class="stories-more">More on the blog: <a href="https://talesofsumbarta.blogspot.com/" target="_blank" rel="noopener">Tales of Sumbarta →</a></p>
       </section>
 
       <section class="section" id="cities">
@@ -877,9 +1047,23 @@
         <a href="https://sumbarta.in/privacy_policy_ludo_sumbarta.html" rel="noopener">Privacy policy</a>
         ·
         <a href="https://sumbarta.in" rel="noopener">sumbarta.in</a>
+        ·
+        <a href="https://talesofsumbarta.blogspot.com/" rel="noopener">Tales of Sumbarta</a>
       </span>
     </footer>
   </div>
+
+  <script>
+    document.querySelectorAll('.story-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const filter = tab.dataset.filter;
+        document.querySelectorAll('.story-tab').forEach(t => t.setAttribute('aria-pressed', t === tab));
+        document.querySelectorAll('.story').forEach(story => {
+          story.hidden = filter !== 'all' && story.dataset.kind !== filter;
+        });
+      });
+    });
+  </script>
 
   <script>
     (() => {
