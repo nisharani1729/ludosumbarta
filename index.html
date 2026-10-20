@@ -914,7 +914,7 @@
       const chirp = (x, chance) => {
         const ctx = sound.ctx;
         if (!sound.on || !ctx || ctx.state !== 'running' || document.hidden) return;
-        if (Math.random() > chance || performance.now() - sound.last < 2500) return;
+        if (Math.random() > chance || performance.now() - sound.last < 1200) return;
         sound.last = performance.now();
         const pan = ctx.createStereoPanner();
         pan.pan.value = Math.max(-1, Math.min(1, (x / innerWidth) * 2 - 1)) * 0.6;
@@ -1003,7 +1003,7 @@
                 const p = i / (stops + 1);
                 const tx = (fromLeft ? w * p : w * (1 - p)) + rand(-60, 60);
                 await dart(tx, rand(h * 0.1, h * 0.85), rand(450, 850));
-                chirp(x, i === 1 ? 0.4 : 0.15);
+                chirp(x, i === 1 ? 0.8 : 0.45);
                 await wait(rand(500, 1500));
               }
               await dart(fromLeft ? w + 60 : -60, rand(h * 0.1, h * 0.7), rand(700, 1100));
