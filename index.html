@@ -115,6 +115,18 @@
       padding: 6px 0;
     }
     .nav a:hover { color: var(--magenta); text-decoration: none; }
+    .sound-toggle {
+      padding: 5px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--muted);
+      font: 500 10px 'DM Mono', monospace;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .sound-toggle[aria-pressed="true"] { color: var(--magenta); border-color: #ffb8db; }
+    .sound-toggle:focus-visible { outline: 3px solid #e5b63d; outline-offset: 3px; }
 
     /* —— Hero —— */
     .hero-wrap {
@@ -647,6 +659,7 @@
         <a href="#journey">Journey</a>
         <a href="#cities">Cities</a>
         <a href="#fort">Fort</a>
+        <button class="sound-toggle" type="button" aria-pressed="true">Birdsong on</button>
       </nav>
     </header>
 
@@ -870,9 +883,60 @@
 
   <script>
     (() => {
-      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const toggle = document.querySelector('.sound-toggle');
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        toggle.remove();
+        return;
+      }
 
       const rand = (min, max) => min + Math.random() * (max - min);
+      const sound = { ctx: null, last: 0, on: localStorage.getItem('birdsong') !== 'off' };
+
+      const showToggle = () => {
+        toggle.setAttribute('aria-pressed', sound.on);
+        toggle.textContent = sound.on ? 'Birdsong on' : 'Birdsong off';
+      };
+      const unlock = () => {
+        const Ctx = window.AudioContext || window.webkitAudioContext;
+        if (!Ctx) return;
+        sound.ctx = sound.ctx || new Ctx();
+        sound.ctx.resume();
+      };
+      addEventListener('pointerdown', unlock, { passive: true });
+      addEventListener('keydown', unlock);
+      toggle.addEventListener('click', () => {
+        sound.on = !sound.on;
+        localStorage.setItem('birdsong', sound.on ? 'on' : 'off');
+        showToggle();
+      });
+      showToggle();
+
+      const chirp = (x, chance) => {
+        const ctx = sound.ctx;
+        if (!sound.on || !ctx || ctx.state !== 'running' || document.hidden) return;
+        if (Math.random() > chance || performance.now() - sound.last < 2500) return;
+        sound.last = performance.now();
+        const pan = ctx.createStereoPanner();
+        pan.pan.value = Math.max(-1, Math.min(1, (x / innerWidth) * 2 - 1)) * 0.6;
+        pan.connect(ctx.destination);
+        let t = ctx.currentTime + 0.01;
+        const notes = 2 + Math.floor(Math.random() * 2);
+        for (let i = 0; i < notes; i++) {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          const f = rand(3000, 4200);
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(f, t);
+          osc.frequency.exponentialRampToValueAtTime(f * rand(1.25, 1.5), t + 0.05);
+          gain.gain.setValueAtTime(0.0001, t);
+          gain.gain.exponentialRampToValueAtTime(0.02, t + 0.008);
+          gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.06);
+          osc.connect(gain).connect(pan);
+          osc.start(t);
+          osc.stop(t + 0.07);
+          t += rand(0.07, 0.11);
+        }
+      };
       const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
       const easeOut = t => 1 - Math.pow(1 - t, 3);
       const flock = [
@@ -939,6 +1003,7 @@
                 const p = i / (stops + 1);
                 const tx = (fromLeft ? w * p : w * (1 - p)) + rand(-60, 60);
                 await dart(tx, rand(h * 0.1, h * 0.85), rand(450, 850));
+                chirp(x, i === 1 ? 0.4 : 0.15);
                 await wait(rand(500, 1500));
               }
               await dart(fromLeft ? w + 60 : -60, rand(h * 0.1, h * 0.7), rand(700, 1100));
