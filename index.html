@@ -579,6 +579,36 @@
     }
     .site-footer a { font: inherit; text-transform: uppercase; }
 
+    .hummingbird {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 60;
+      width: 38px;
+      height: 38px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      will-change: transform;
+    }
+    .hummingbird.visible { opacity: 0.9; }
+    .hb-face {
+      width: 100%;
+      height: 100%;
+      transform: scaleX(var(--dir, 1)) rotate(var(--tilt, 0deg));
+      transition: transform 0.25s ease;
+    }
+    .hb-face img {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 3px 4px #a90c5b40);
+      animation: hb-buzz 0.14s ease-in-out infinite alternate;
+    }
+    @keyframes hb-buzz {
+      from { transform: translateY(-1px) rotate(-1deg); }
+      to { transform: translateY(1px) rotate(1deg); }
+    }
+
     @media (max-width: 960px) {
       .travelers { grid-template-columns: repeat(3, 1fr); }
       .steps { grid-template-columns: repeat(2, 1fr); }
@@ -601,6 +631,7 @@
       .games { grid-template-columns: repeat(2, 1fr); }
       .game-tile.featured { grid-column: span 2; }
       .stat { flex: 1 1 40%; }
+      .hummingbird { width: 30px; height: 30px; }
     }
   </style>
 </head>
@@ -836,5 +867,76 @@
       </span>
     </footer>
   </div>
+
+  <div class="hummingbird" aria-hidden="true">
+    <div class="hb-face"><img src="assets/hummingbird4.webp" width="38" height="38" alt=""></div>
+  </div>
+
+  <script>
+    (() => {
+      const bird = document.querySelector('.hummingbird');
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        bird.remove();
+        return;
+      }
+      const face = bird.firstElementChild;
+      const rand = (min, max) => min + Math.random() * (max - min);
+      const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+      const easeOut = t => 1 - Math.pow(1 - t, 3);
+      let x = -60;
+      let y = 0;
+
+      const place = () => { bird.style.transform = `translate(${x}px, ${y}px)`; };
+
+      const dart = (toX, toY, ms) => new Promise(resolve => {
+        const fromX = x;
+        const fromY = y;
+        const lift = rand(8, 26);
+        const start = performance.now();
+        face.style.setProperty('--dir', toX < fromX ? -1 : 1);
+        face.style.setProperty('--tilt', '10deg');
+        const step = now => {
+          const t = Math.min(1, (now - start) / ms);
+          const e = easeOut(t);
+          x = fromX + (toX - fromX) * e;
+          y = fromY + (toY - fromY) * e - Math.sin(t * Math.PI) * lift;
+          place();
+          if (t < 1) {
+            requestAnimationFrame(step);
+          } else {
+            face.style.setProperty('--tilt', '0deg');
+            resolve();
+          }
+        };
+        requestAnimationFrame(step);
+      });
+
+      const flight = async () => {
+        for (;;) {
+          await wait(rand(5000, 11000));
+          if (document.hidden) continue;
+          const w = innerWidth;
+          const h = innerHeight;
+          const fromLeft = Math.random() < 0.5;
+          x = fromLeft ? -50 : w + 50;
+          y = rand(h * 0.15, h * 0.65);
+          place();
+          bird.classList.add('visible');
+          const stops = 2 + Math.floor(Math.random() * 3);
+          for (let i = 1; i <= stops; i++) {
+            const p = i / (stops + 1);
+            const tx = (fromLeft ? w * p : w * (1 - p)) + rand(-60, 60);
+            await dart(tx, rand(h * 0.12, h * 0.8), rand(450, 850));
+            await wait(rand(500, 1500));
+          }
+          await dart(fromLeft ? w + 60 : -60, rand(h * 0.1, h * 0.6), rand(700, 1100));
+          bird.classList.remove('visible');
+        }
+      };
+
+      place();
+      flight();
+    })();
+  </script>
 </body>
 </html>
