@@ -512,7 +512,7 @@
     }
     .games {
       display: grid;
-      grid-template-columns: repeat(7, 1fr);
+      grid-template-columns: repeat(8, 1fr);
       gap: 10px;
     }
     .game-tile {
@@ -545,6 +545,26 @@
     .game-tile img { width: 48px; height: 48px; object-fit: contain; }
     .game-tile span { font-size: 12px; font-weight: 700; line-height: 1.25; }
     .game-tile.featured span { font-size: 15px; }
+    .game-tile small {
+      display: block;
+      margin-top: 2px;
+      font: 500 9px 'DM Mono', monospace;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .game-tile.takshak {
+      background: #16141a;
+      border-color: #3a3140;
+      color: #fffef9;
+    }
+    .game-tile.takshak img {
+      width: 42px;
+      height: 56px;
+      object-fit: contain;
+    }
+    .game-tile.takshak small { color: #c9b8c4; }
 
     /* —— Inside the app —— */
     .poster {
@@ -1188,7 +1208,7 @@
       <section class="section" id="fort">
         <div class="section-head">
           <h2>Fort Sumbarta courtyard</h2>
-          <p class="sub">Enter through the south gate — halls around the Royal Keep hold Carrom, Callbreak, Snakes &amp; Ladders, Humming Bird, puzzles, and more.</p>
+          <p class="sub">Enter through the south gate — halls around the Royal Keep hold Carrom, Callbreak, Snakes &amp; Ladders, Humming Bird, and puzzles. On a city match, Takshak, King of Serpents, may turn one rival against you.</p>
         </div>
         <figure class="poster offer-banner">
           <img src="assets/feature_graphic_1024x500.png" width="1024" height="500" alt="Three phones showing the ancient kingdom, classic Ludo, and Snakes and Ladders" loading="lazy">
@@ -1229,6 +1249,10 @@
             <img src="assets/puzzle_15.webp" alt="">
             <span>15-Puzzle</span>
           </div>
+          <div class="game-tile takshak">
+            <img src="assets/takshak.png" alt="">
+            <span>Takshak<small>King of Serpents</small></span>
+          </div>
         </div>
       </section>
 
@@ -1243,6 +1267,7 @@
           </figure>
           <ul class="kingdom-list">
             <li><strong>Sumbarta</strong> — the royal seat</li>
+            <li><strong>Takshak's Realm</strong> — south of the fort, 1000 BC</li>
             <li><strong>Trikuta Vale</strong></li>
             <li><strong>Chenab Crown</strong></li>
             <li><strong>Doda Highlands</strong></li>
