@@ -476,11 +476,14 @@
     /* —— Fort —— */
     .fort-visual {
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 16px;
       margin-bottom: 20px;
+      align-items: stretch;
     }
     .fort-visual figure {
+      display: flex;
+      flex-direction: column;
       margin: 0;
       border-radius: 12px;
       overflow: hidden;
@@ -491,8 +494,15 @@
       width: 100%;
       aspect-ratio: 4 / 3;
       object-fit: cover;
+      object-position: center;
+    }
+    .fort-visual .plan img {
+      object-fit: contain;
+      object-position: center;
+      background: #e6cb92;
     }
     .fort-visual figcaption {
+      margin-top: auto;
       padding: 10px 14px;
       font: 500 10px 'DM Mono', monospace;
       text-transform: uppercase;
@@ -1186,7 +1196,7 @@
             <img src="assets/landing_courtyard_painterly.webp" alt="Fort Sumbarta courtyard" loading="lazy">
             <figcaption>Fort Sumbarta · courtyard</figcaption>
           </figure>
-          <figure>
+          <figure class="plan">
             <img src="assets/landing_fort_map_districts_old.webp" alt="Overhead plan of Fort Sumbarta" loading="lazy">
             <figcaption>Royal fortress · overhead plan</figcaption>
           </figure>
