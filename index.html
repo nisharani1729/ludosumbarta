@@ -571,8 +571,8 @@
     }
     .shots {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px 14px;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 14px 10px;
     }
     .shot {
       display: flex;
@@ -602,7 +602,9 @@
       background: #1a1214;
     }
     .shot:hover .phone-bezel { box-shadow: inset 0 1px 0 #ffffff33, 0 8px 0 #ffb8db, 0 18px 32px #a90c5b28; }
-    .shot strong { display: block; font-size: 14px; line-height: 1.25; }
+    .shots .phone-bezel { padding: 5px; border-radius: 16px; }
+    .shots .phone-bezel img { border-radius: 12px; }
+    .shot strong { display: block; font-size: 13px; line-height: 1.25; }
     .shot em {
       display: block;
       margin-top: 3px;
@@ -837,7 +839,6 @@
       .steps { grid-template-columns: repeat(2, 1fr); }
       .city-grid { grid-template-columns: repeat(2, 1fr); }
       .games { grid-template-columns: repeat(3, 1fr); }
-      .shots { grid-template-columns: repeat(3, 1fr); }
       .game-tile.featured { grid-column: span 3; }
     }
 
@@ -868,14 +869,16 @@
       .travelers { grid-template-columns: repeat(2, 1fr); }
       .steps { grid-template-columns: 1fr; }
       .games { grid-template-columns: repeat(2, 1fr); }
+      .section { min-width: 0; }
       .shots {
-        display: flex;
-        gap: 14px;
+        width: 100%;
+        min-width: 0;
+        grid-template-columns: repeat(6, 46%);
         overflow-x: auto;
-        scroll-snap-type: x mandatory;
         padding-bottom: 8px;
+        scroll-snap-type: x proximity;
       }
-      .shots .shot { flex: 0 0 72%; scroll-snap-align: start; }
+      .shots .shot { scroll-snap-align: start; }
       .hero-phone { width: min(100%, 220px); }
       .game-tile.featured { grid-column: span 2; }
       .stat { flex: 1 1 40%; }
