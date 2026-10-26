@@ -824,6 +824,17 @@
       text-transform: uppercase;
     }
     .story-meta span:last-child { color: var(--magenta); }
+    .story-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      text-transform: none;
+    }
+    .story-actions a {
+      color: var(--magenta);
+      font: 600 12px 'Outfit', sans-serif;
+      text-transform: none;
+    }
     .stories-more { margin: 18px 0 0; font-size: 14px; }
 
     .site-footer {
@@ -1131,15 +1142,21 @@
           <button class="story-tab" type="button" data-filter="folk" aria-pressed="false">Folk tales</button>
         </div>
         <div class="stories">
-          <a class="story" data-kind="chronicle" href="https://talesofsumbarta.blogspot.com/2026/09/ludo-sumbarta-river-oath-1000900-bc.html" target="_blank" rel="noopener">
+          <article class="story" data-kind="chronicle">
             <div class="story-art"><img src="assets/stories/river-oath.jpg" width="720" height="450" alt="" loading="lazy"></div>
             <div class="story-body">
               <span class="story-kind chronicle">Chronicle · 1000–900 BC</span>
               <h3>The River Oath</h3>
               <p>“In the year the meadows still had no kingdom, Kael Gobu would later write, six people walked out of a reed town and called the grass a road.”</p>
-              <div class="story-meta"><span>Sep 2026 · 19 min read</span><span>Read →</span></div>
+              <div class="story-meta">
+                <span>45 pages</span>
+                <span class="story-actions">
+                  <a href="https://talesofsumbarta.blogspot.com/2026/09/ludo-sumbarta-river-oath-1000900-bc.html" target="_blank" rel="noopener">Read</a>
+                  <a href="Ludo-Sumbarta-River-Oath-1000-900BC.pdf" download="Ludo-Sumbarta-River-Oath-1000-900BC.pdf">Download PDF</a>
+                </span>
+              </div>
             </div>
-          </a>
+          </article>
           <a class="story" data-kind="chronicle" href="https://talesofsumbarta.blogspot.com/2026/09/ludo-sumbarta-oath-in-light-30003100-ad.html" target="_blank" rel="noopener">
             <div class="story-art"><img src="assets/stories/oath-in-light.jpg" width="720" height="450" alt="" loading="lazy"></div>
             <div class="story-body">
@@ -1186,7 +1203,7 @@
             </div>
           </a>
         </div>
-        <p class="stories-more">More on the blog: <a href="https://talesofsumbarta.blogspot.com/" target="_blank" rel="noopener">Tales of Sumbarta →</a></p>
+        <p class="stories-more">The full River Oath chronicle: <a href="Ludo-Sumbarta-River-Oath-1000-900BC.pdf" download="Ludo-Sumbarta-River-Oath-1000-900BC.pdf">Download the PDF</a>. More on the blog: <a href="https://talesofsumbarta.blogspot.com/" target="_blank" rel="noopener">Tales of Sumbarta →</a></p>
       </section>
 
       <section class="section" id="cities">
