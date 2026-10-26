@@ -11,8 +11,9 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Ludo Sumbarta — Fort Sumbarta">
   <meta property="og:description" content="Travel winding roads through Ancient and Future Sumbarta, conquer ten cities, and become the Royal Champion.">
-  <meta property="og:image" content="assets/ludo_sumbarta_icon.webp">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="assets/feature_graphic_ghibli_1024x500.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="assets/feature_graphic_ghibli_1024x500.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@400;500;600;700;800&display=swap">
@@ -115,6 +116,7 @@
       padding: 6px 0;
     }
     .nav a:hover { color: var(--magenta); text-decoration: none; }
+    .nav-break { display: none; }
     .sound-toggle {
       padding: 5px 10px;
       border: 1px solid var(--line);
@@ -248,25 +250,24 @@
       align-items: center;
       gap: 14px;
     }
-    .hero-icon-frame {
-      width: 100%;
-      max-width: 320px;
-      padding: 18px;
-      border-radius: var(--radius);
-      background: linear-gradient(145deg, #ff48a4, var(--magenta) 68%, var(--magenta-deep));
-      box-shadow: inset 0 2px 4px #ffffffc0, 0 6px 0 var(--magenta-deep), 0 16px 40px #a90c5b40;
+    .hero-phone {
+      width: min(100%, 260px);
+      padding: 0;
+      border: 0;
+      background: none;
+      cursor: zoom-in;
       animation: hero-float 5s ease-in-out infinite;
     }
+    .hero-phone:focus-visible { outline: 3px solid #e5b63d; outline-offset: 4px; }
     @keyframes hero-float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-6px); }
     }
-    .hero-icon-frame img {
-      border-radius: 10px;
-      width: 100%;
-    }
     .hero-badge {
+      display: inline-block;
+      max-width: 100%;
       font: 500 10px 'DM Mono', monospace;
+      text-align: center;
       text-transform: uppercase;
       color: #fff;
       padding: 8px 14px;
@@ -535,6 +536,107 @@
     .game-tile span { font-size: 12px; font-weight: 700; line-height: 1.25; }
     .game-tile.featured span { font-size: 15px; }
 
+    /* —— Inside the app —— */
+    .poster {
+      margin: 0 0 22px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: 0 4px 16px #172b2910;
+    }
+    .poster img { width: 100%; height: auto; }
+    .poster figcaption {
+      padding: 10px 14px;
+      font: 500 10px 'DM Mono', monospace;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: #faf8f5;
+      border-top: 1px solid var(--line);
+    }
+    .look-note {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font: 500 11px 'DM Mono', monospace;
+      text-transform: uppercase;
+    }
+    .shots {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px 14px;
+    }
+    .shot {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background: none;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      cursor: zoom-in;
+    }
+    .shot:focus-visible { outline: 3px solid #e5b63d; outline-offset: 4px; border-radius: 16px; }
+    .phone-bezel {
+      display: block;
+      padding: 8px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, #3a2432, #1c1218);
+      box-shadow: inset 0 1px 0 #ffffff33, 0 8px 0 #e4d5dc, 0 16px 28px #a90c5b18;
+    }
+    .phone-bezel img {
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+      background: #1a1214;
+    }
+    .shot:hover .phone-bezel { box-shadow: inset 0 1px 0 #ffffff33, 0 8px 0 #ffb8db, 0 18px 32px #a90c5b28; }
+    .shot strong { display: block; font-size: 14px; line-height: 1.25; }
+    .shot em {
+      display: block;
+      margin-top: 3px;
+      font-style: normal;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--muted);
+    }
+    .shot-dialog {
+      width: min(440px, calc(100vw - 28px));
+      max-height: min(920px, calc(100vh - 28px));
+      margin: auto;
+      padding: 12px;
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--white);
+      color: var(--ink);
+      box-shadow: 0 24px 60px #202c2b55;
+    }
+    .shot-dialog::backdrop { background: #202c2bcc; }
+    .shot-dialog img {
+      width: 100%;
+      border-radius: 12px;
+      background: #1a1214;
+    }
+    .shot-dialog p { margin: 12px 4px 4px; font-size: 14px; line-height: 1.45; }
+    .shot-close {
+      display: block;
+      margin: 0 0 8px auto;
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--ink);
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .shot-close:focus-visible { outline: 3px solid #e5b63d; outline-offset: 2px; }
+    .offer-banner { margin-bottom: 20px; }
+
     /* —— Kingdoms —— */
     .kingdoms {
       display: grid;
@@ -725,14 +827,30 @@
       .steps { grid-template-columns: repeat(2, 1fr); }
       .city-grid { grid-template-columns: repeat(2, 1fr); }
       .games { grid-template-columns: repeat(3, 1fr); }
+      .shots { grid-template-columns: repeat(3, 1fr); }
       .game-tile.featured { grid-column: span 3; }
     }
 
     @media (max-width: 720px) {
+      body { overflow-x: clip; }
       .shell { width: min(560px, calc(100% - 24px)); }
       .topbar { height: auto; min-height: 64px; flex-wrap: wrap; padding: 10px 0; }
-      .nav { width: 100%; justify-content: center; }
-      .hero { grid-template-columns: 1fr; }
+      .nav {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        justify-items: center;
+        column-gap: 8px;
+        row-gap: 6px;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        font-size: 12px;
+      }
+      .hero-badge { max-width: calc(100vw - 48px); }
+      .nav-break { display: none; }
+      .sound-toggle { grid-column: 1 / -1; justify-self: center; }
+      .hero { grid-template-columns: minmax(0, 1fr); }
+      .hero-copy, .hero-visual { min-width: 0; max-width: 100%; }
       .hero-visual { order: -1; }
       .tracks { grid-template-columns: 1fr; }
       .fort-visual { grid-template-columns: 1fr; }
@@ -740,6 +858,15 @@
       .travelers { grid-template-columns: repeat(2, 1fr); }
       .steps { grid-template-columns: 1fr; }
       .games { grid-template-columns: repeat(2, 1fr); }
+      .shots {
+        display: flex;
+        gap: 14px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 8px;
+      }
+      .shots .shot { flex: 0 0 72%; scroll-snap-align: start; }
+      .hero-phone { width: min(100%, 220px); }
       .game-tile.featured { grid-column: span 2; }
       .stat { flex: 1 1 40%; }
       .hummingbird { width: calc(var(--size, 38px) * 0.8); height: calc(var(--size, 38px) * 0.8); }
@@ -754,12 +881,14 @@
         <span>Fort Sumbarta</span>
       </a>
       <nav class="nav" aria-label="Page sections">
+        <a href="#look">Inside</a>
         <a href="#party">Travelers</a>
         <a href="#journey">Journey</a>
         <a href="#stories">Stories</a>
         <a href="#cities">Cities</a>
         <a href="#fort">Fort</a>
         <a href="#comments">Comments</a>
+        <span class="nav-break" aria-hidden="true"></span>
         <button class="sound-toggle" type="button" aria-pressed="true">Birdsong on</button>
       </nav>
     </header>
@@ -791,13 +920,75 @@
             </div>
           </div>
           <div class="hero-visual">
-            <div class="hero-icon-frame">
-              <img src="assets/ludo_sumbarta_icon.webp" width="284" height="284" alt="Ludo Sumbarta app icon">
-            </div>
-            <span class="hero-badge">Travel winding roads · Conquer the ten cities</span>
+            <button class="shot hero-phone" type="button"
+              data-shot="assets/Screenshot_20261025_183656_Ludo Sumbarta.jpg"
+              data-alt="Four-player Ludo board with Mani Dufaan, Leela, Aman, and Raj"
+              data-caption="The Ludo table — four players, one board. Mani Dufaan rolls against Leela, Aman, and Raj.">
+              <span class="phone-bezel">
+                <img src="assets/Screenshot_20261025_183656_Ludo Sumbarta.jpg" width="360" height="780" alt="Four-player Ludo board in Fort Sumbarta">
+              </span>
+            </button>
+            <span class="hero-badge">The Ludo table · tap to look closer</span>
           </div>
         </section>
       </div>
+
+      <section class="section" id="look">
+        <div class="section-head">
+          <h2>A look inside</h2>
+          <p class="sub">Fort Sumbarta is the front door. From the courtyard you walk Ancient and Future roads, sit a Ludo table, and play the games in the halls.</p>
+        </div>
+        <figure class="poster">
+          <img src="assets/feature_graphic_ghibli_1024x500.png" width="1024" height="500" alt="Ludo Sumbarta poster: a traveler before the fort, with Classic Ludo, the ancient kingdom, the fortune wheel, and Snakes and Ladders">
+        </figure>
+        <p class="look-note">Screens from the Android app · swipe on a phone, tap any screen to open it</p>
+        <div class="shots">
+          <button class="shot" type="button" data-shot="assets/Screenshot_20261025_183602_Ludo Sumbarta.jpg" data-alt="Fort Sumbarta courtyard with Ludo Classic and shortcuts to Callbreak, Carrom, Snakes and Ladders, and Humming Bird" data-caption="Fort courtyard — Ludo Classic, plus Callbreak, Carrom, Snakes &amp; Ladders, and Humming Bird.">
+            <span class="phone-bezel"><img src="assets/Screenshot_20261025_183602_Ludo Sumbarta.jpg" width="360" height="780" alt="" loading="lazy"></span>
+            <span><strong>Fort courtyard</strong><em>Ludo Classic, and the other halls</em></span>
+          </button>
+          <button class="shot" type="button" data-shot="assets/Screenshot_20261025_183609_Ludo Sumbarta.jpg" data-alt="Ancient Sumbarta map with Mani Dufaan on a river road between level markers" data-caption="Ancient Sumbarta — the kingdom map along the river, level by level.">
+            <span class="phone-bezel"><img src="assets/Screenshot_20261025_183609_Ludo Sumbarta.jpg" width="360" height="780" alt="" loading="lazy"></span>
+            <span><strong>Ancient Sumbarta</strong><em>The river road, 1000 BC</em></span>
+          </button>
+          <button class="shot" type="button" data-shot="assets/Screenshot_20261025_183614_Ludo Sumbarta.jpg" data-alt="Future Sumbarta map, the same road redrawn in neon" data-caption="Future Sumbarta — the same road, redrawn for the neon era.">
+            <span class="phone-bezel"><img src="assets/Screenshot_20261025_183614_Ludo Sumbarta.jpg" width="360" height="780" alt="" loading="lazy"></span>
+            <span><strong>Future Sumbarta</strong><em>The road in neon, 3000 AD</em></span>
+          </button>
+          <button class="shot" type="button" data-shot="assets/Screenshot_20261025_183712_Ludo Sumbarta.jpg" data-alt="Ancient road stage into Vardhana during the River Oath era, with a die ready to roll" data-caption="The River Oath — roll the die and walk the ancient road into Vardhana.">
+            <span class="phone-bezel"><img src="assets/Screenshot_20261025_183712_Ludo Sumbarta.jpg" width="360" height="780" alt="" loading="lazy"></span>
+            <span><strong>River Oath road</strong><em>Stage 1 of 100, Vardhana</em></span>
+          </button>
+          <button class="shot" type="button" data-shot="assets/Screenshot_20261025_183619_Ludo Sumbarta.jpg" data-alt="Future road stage into Vardhana Prime during the Neon Dawn era" data-caption="Neon Dawn — the future road into Vardhana Prime, born of Surya's light.">
+            <span class="phone-bezel"><img src="assets/Screenshot_20261025_183619_Ludo Sumbarta.jpg" width="360" height="780" alt="" loading="lazy"></span>
+            <span><strong>Neon Dawn road</strong><em>Vardhana Prime, future track</em></span>
+          </button>
+          <button class="shot" type="button" data-shot="assets/Screenshot_20261025_183643_Ludo Sumbarta.jpg" data-alt="Ludo Shop with pass-and-play and versus-computer tables for two, three, and four players" data-caption="Ludo Shop — pass-and-play or versus the computer, two to four players, with boosts, tunnels, and coins.">
+            <span class="phone-bezel"><img src="assets/Screenshot_20261025_183643_Ludo Sumbarta.jpg" width="360" height="780" alt="" loading="lazy"></span>
+            <span><strong>Ludo Shop</strong><em>Pass-and-play or versus computer</em></span>
+          </button>
+          <button class="shot" type="button" data-shot="assets/Screenshot_20261025_183656_Ludo Sumbarta.jpg" data-alt="Classic four-player Ludo board" data-caption="The Ludo table — green, red, yellow, and blue. Mani Dufaan's turn to roll.">
+            <span class="phone-bezel"><img src="assets/Screenshot_20261025_183656_Ludo Sumbarta.jpg" width="360" height="780" alt="" loading="lazy"></span>
+            <span><strong>Classic Ludo</strong><em>Four players, one board</em></span>
+          </button>
+          <button class="shot" type="button" data-shot="assets/Screenshot_20261025_183631_Ludo Sumbarta.jpg" data-alt="Fortune Wheel offering free coins" data-caption="Fortune Wheel — tap spin for free coins, up to two hundred spins a day.">
+            <span class="phone-bezel"><img src="assets/Screenshot_20261025_183631_Ludo Sumbarta.jpg" width="360" height="780" alt="" loading="lazy"></span>
+            <span><strong>Fortune Wheel</strong><em>Free coins, every day</em></span>
+          </button>
+          <button class="shot" type="button" data-shot="assets/Screenshot_20261025_183739_Ludo Sumbarta.jpg" data-alt="Snakes and Ladders board on yellow's turn" data-caption="Snakes &amp; Ladders — a hundred squares, yellow's turn, tap the die to roll.">
+            <span class="phone-bezel"><img src="assets/Screenshot_20261025_183739_Ludo Sumbarta.jpg" width="360" height="780" alt="" loading="lazy"></span>
+            <span><strong>Snakes &amp; Ladders</strong><em>A hundred squares in the courtyard</em></span>
+          </button>
+          <button class="shot" type="button" data-shot="assets/Screenshot_20261025_183756_Ludo Sumbarta.jpg" data-alt="Carrom board, you against the computer" data-caption="Carrom — you against the courtyard computer, striker ready on the wooden board.">
+            <span class="phone-bezel"><img src="assets/Screenshot_20261025_183756_Ludo Sumbarta.jpg" width="360" height="780" alt="" loading="lazy"></span>
+            <span><strong>Carrom</strong><em>You against the courtyard</em></span>
+          </button>
+          <button class="shot" type="button" data-shot="assets/Screenshot_20261025_183809_Ludo Sumbarta.jpg" data-alt="Humming Bird stage in the Fort Sumbarta courtyard" data-caption="Humming Bird — stage one in the Fort Sumbarta courtyard. Guide the bird, gather the flowers.">
+            <span class="phone-bezel"><img src="assets/Screenshot_20261025_183809_Ludo Sumbarta.jpg" width="360" height="780" alt="" loading="lazy"></span>
+            <span><strong>Humming Bird</strong><em>Stage 1, Fort courtyard</em></span>
+          </button>
+        </div>
+      </section>
 
       <section class="section" id="party">
         <div class="section-head">
@@ -986,6 +1177,10 @@
           <h2>Fort Sumbarta courtyard</h2>
           <p class="sub">Enter through the south gate — halls around the Royal Keep hold Carrom, Callbreak, Snakes &amp; Ladders, Humming Bird, puzzles, and more.</p>
         </div>
+        <figure class="poster offer-banner">
+          <img src="assets/feature_graphic_1024x500.png" width="1024" height="500" alt="Three phones showing the ancient kingdom, classic Ludo, and Snakes and Ladders" loading="lazy">
+          <figcaption>Rule a 1000-year Ludo kingdom · ancient roads to a neon future</figcaption>
+        </figure>
         <div class="fort-visual">
           <figure>
             <img src="assets/landing_courtyard_painterly.webp" alt="Fort Sumbarta courtyard" loading="lazy">
@@ -1071,6 +1266,34 @@
       </span>
     </footer>
   </div>
+
+  <dialog class="shot-dialog" id="shot-dialog">
+    <button class="shot-close" type="button" aria-label="Close">×</button>
+    <img id="shot-full" alt="">
+    <p id="shot-caption"></p>
+  </dialog>
+
+  <script>
+    (() => {
+      const dialog = document.getElementById('shot-dialog');
+      const full = document.getElementById('shot-full');
+      const caption = document.getElementById('shot-caption');
+      const openShot = (button) => {
+        full.src = button.dataset.shot;
+        full.alt = button.dataset.alt || '';
+        caption.textContent = button.dataset.caption || '';
+        dialog.showModal();
+      };
+      document.querySelectorAll('[data-shot]').forEach(button => {
+        button.addEventListener('click', () => openShot(button));
+      });
+      dialog.querySelector('.shot-close').addEventListener('click', () => dialog.close());
+      dialog.addEventListener('click', (event) => {
+        if (event.target === dialog) dialog.close();
+      });
+      dialog.addEventListener('close', () => { full.removeAttribute('src'); });
+    })();
+  </script>
 
   <script>
     document.querySelectorAll('.story-tab').forEach(tab => {
