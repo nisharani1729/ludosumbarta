@@ -80,7 +80,7 @@ In Fort Sumbarta’s courtyard, halls around the Royal Keep also hold **Carrom**
 
 Chronicles of the six travelers, notes from the fort, and folk tales from the hills of Jammu live on the site and on [Tales of Sumbarta](https://talesofsumbarta.blogspot.com/).
 
-- **The River Oath** (1000–900 BC) — full chronicle PDF in this repo: [`Ludo-Sumbarta-River-Oath-1000-900BC.pdf`](Ludo-Sumbarta-River-Oath-1000-900BC.pdf)
+- **The River Oath** (1000–900 BC) — [read on Tales of Sumbarta](https://talesofsumbarta.blogspot.com/2026/09/ludo-sumbarta-river-oath-1000900-bc.html)
 - Chapter drafts under [`chapters/chapters/`](chapters/chapters/) — from the rope at Vardhana to the Crystal Crown at Sphatika
 - **The Oath in Light** — the same walk, rewritten in neon (3000–3100 AD)
 
@@ -95,7 +95,6 @@ Marketing and lore site for the game — static pages, art, screenshots, story a
 ```
 index.html                          Landing page
 privacy_policy_ludo_sumbarta.html   Privacy policy
-Ludo-Sumbarta-River-Oath-*.pdf      Chronicle
 chapters/chapters/                  Chapter drafts (00–11)
 downloads/LudoSumbarta.apk          Android build
 assets/                             Art, portraits, screenshots
