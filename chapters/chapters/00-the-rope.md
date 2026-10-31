@@ -2,58 +2,60 @@
 
 **~1000 BC · Vardhana reed gate**
 
-In the year the meadows still had no kingdom, Kael Gobu would later write, six people walked out of a reed town and called the grass a road.
+Kael Gobu wrote this story when he was old. His hand shook. He wrote on a piece of bark that smelled of smoke and ice. His first line was: "In the year the meadows still had no kingdom, six people walked out of a reed town and called the grass a road."
 
-He wrote it as an old man, in a hand that shook, on a scrap of beaten bark that smelled of smoke and ice. He did not write the century first. He wrote the rope.
+He did not begin with the year. He began with the rope.
 
-The ten clans had met where the river bent and the mud held footprints for a single day. Elders too old to travel had spoken the River Oath in one breath: a party of six must walk to the Crystal Crown at Sphatika and win the Royal Game at every gate. If they won all ten, the clans would be one people and the land would have a name. If they failed, the clans would remain ten names arguing over water—and something older than argument, the force the children only half-heard in fireside stories, would keep peeling the world back to wilderness.
+Ten clans had met at a bend in the river. The mud there kept footprints for only one day. The oldest elders were too weak to travel, but they spoke the River Oath together, in one breath. Six people must walk to the Crystal Crown at Sphatika. At each of ten gates they must win the Royal Game.
 
-They did not call that force Takshak at the rope. They called it the King of Serpents, and they said he could not enter a game once the die had been cast and all six stood in the court. They said he could do everything else.
+If they won all ten, the ten clans would become one people, and the land would get a name. If they failed, the clans would stay ten groups fighting over water. And an old force would keep pulling the world back into wilderness. Children had heard of it only in stories by the fire. The people called it the King of Serpents. Later it would be called Takshak.
 
-The reed gate at Vardhana was two posts and a wet line of hemp. Beyond it the meadow went on as if no one had ever decided anything. Mist clung to the river reeds. A heron stood on one leg and watched them as if they were a joke the water had told.
+The elders said he could not enter a game once the die was thrown and all six players stood in the court. But they said he could do almost anything else.
 
-Baby Dufaan stood with a wooden die in both palms. The die was older than the town. Its pips had been burned in with a nail, and when Baby turned it the marks looked like small wounds that had healed wrong.
+The reed gate at Vardhana was just two posts and a wet rope made of hemp. Past it, the meadow went on and on, as if nobody had ever decided anything. Mist sat on the reeds. A heron stood on one leg and watched them, as if they were a joke the river was telling.
 
-Mani Dufaan was already on the far side of the rope.
+Baby Dufaan held a wooden die in both hands. It was older than the town. Its dots had been burned in with a nail. When Baby turned it, the dots looked like small wounds that had healed badly.
 
-"If you wait for a number," she said, "the grass grows over your feet."
+Mani Dufaan was already on the other side of the rope.
 
-Kael counted the faces under the reed roofs. His own heart beat like a second die. Taro Domizon had a copper pin in his teeth and swore it would become a tool before it became a weapon. Maya Mersace had something in her sleeve she had not shown anyone—not even Mani, who usually knew everything about everyone. Borin Gubatti had the packs, and the packs were enough for a season if they did not meet winter too soon.
+"If you wait for the right number," she said, "the grass will grow over your feet."
 
-They did not know they were founding Sumbarta. They knew only the sentence, and the weight of ten clans watching from the bank.
+Kael looked at the six of them. Taro Domizon had a copper pin between his teeth. He said it would become a tool before it became a weapon. Maya Mersace was hiding something in her sleeve. She had not shown it to anyone, not even Mani, who usually knew everything about everyone. Borin Gubatti carried the packs. There was enough food for one season, if winter did not come too early.
 
-Baby shook the die. It came up six.
+They did not know they were starting a kingdom. They only knew the sentence the elders had given them, and they felt ten clans watching from the river bank.
 
-Kael felt the number land in his chest like a command. Six pips. Six walkers. Not five, not seven. The oath had teeth.
+Baby shook the die. It landed on six.
+
+Kael felt the number hit him in the chest like an order. Six dots. Six walkers. Not five, not seven. The oath had teeth.
 
 "Together," he said.
 
-Mani did not wait. She walked. The hemp line brushed her shoulder and left a dark wet stripe on her tunic, as if the gate had signed her.
+Mani did not wait. She walked through. The rope brushed her shoulder and left a dark wet line on her tunic, as if the gate had signed its name on her.
 
-Baby looked at Kael. Kael looked at the others. Taro spat the pin into his palm and pocketed it. Maya's eyes were on the far meadow, unreadable. Borin hitched the straps and followed Mani.
+Baby looked at Kael. Kael looked at the others. Taro took the pin from his mouth and put it in his pocket. Maya stared at the far meadow, and no one could read her face. Borin pulled his straps tight and followed Mani.
 
-Baby crossed last, die still warm, and when his foot touched grass on the far side he understood—without words—that the road had begun counting them.
+Baby crossed last. The die was still warm. When his foot touched the grass on the other side, he understood, without words, that the road had started counting them.
 
-Behind them, someone on the bank struck a reed drum once. Not celebration. Witness.
+Behind them, someone on the bank hit a reed drum once. It was not a party. It was a witness.
 
-Ahead, there was only path, and the rumor of ten cities, and a crown of crystal no one in Vardhana had seen.
+Ahead there was only a path, a rumor of ten cities, and a crown of crystal that no one in Vardhana had ever seen.
 
-Kael would write, decades later, that the rope was the true first gate. Everything after was only a longer way of asking whether six could stay six.
+Many years later, Kael would write that the rope was the real first gate. Everything after it was just a longer way of asking one question: could six people stay six?
 
-Mani was already far ahead, calling back that the grass was shorter here and the snakes, if there were snakes, had not yet voted.
+Mani was already far ahead. She called back that the grass was shorter here, and that the snakes, if there were any, had not voted yet.
 
-Baby ran to catch her.
+Baby ran to catch up.
 
-At the river, before the rope, an elder had pressed the die into Baby's hands and said, "Wooden remembers. Glass forgets. Iron lies." Baby did not know then that he would carry the same wood to crystal.
+Before the rope, at the river, an elder had pushed the die into Baby's hands. "Wood remembers," she said. "Glass forgets. Iron lies." Baby did not know yet that he would carry this same piece of wood all the way to the crystal.
 
-Taro spat the copper pin into his palm once more on the meadow side and said, "First tool of the walk." Maya finally showed what hid in her sleeve: not a weapon, a strip of bark already inscribed with the ten clan marks, as if she had known they would need reminding.
+On the meadow side, Taro took the copper pin out of his pocket again. "First tool of the walk," he said. Then Maya finally showed what was in her sleeve. It was not a weapon. It was a strip of bark with the ten clan marks already written on it, as if she had known they would need to be reminded.
 
-Borin adjusted the packs so the weight sat on his hips, not his heart. "Six straps," he said. "Six lives."
+Borin moved the packs so the weight sat on his hips and not on his heart. "Six straps," he said. "Six lives."
 
-Kael looked at the horizon. No crown visible. Only the obligation to try.
+Kael looked at the horizon. He could not see any crown. There was only the duty to try.
 
-The ten clan marks on Maya's bark strip caught the light: ten doors, ten games, one walk. If they failed at the ninth gate, the elders had said, Takshak would not burn them in a day. He would unweave them slowly—fields to reed, names to wind. Victory was not glory. It was weather you negotiated.
+The ten marks on Maya's bark shone in the light. Ten doors. Ten games. One long walk. The elders had said that if the six failed at the ninth gate, Takshak would not burn them in a single day. He would take the world apart slowly. Fields would turn back into reeds. Names would turn into wind. Winning was not about glory. It was like dealing with the weather.
 
-Baby tucked the die into a pouch at his belt. Six pips facing out, because Mani had already moved and superstition needed help.
+Baby put the die in a pouch at his belt, with the six dots facing out. Mani had already moved on, and he thought a little luck might help.
 
 The century began.
