@@ -16,7 +16,7 @@ In the seventh year of the ice, Borin did not get up with the others.
 
 He was breathing. He was not walking. The gentle giant looked at the packs as if they were a joke he finally understood.
 
-"You will carry the gold of me," he said to Baby, "and leave the weight. I am still coming."
+"You will have to carry my share," he said to Baby. "But I am still coming."
 
 They did not leave him. They built a sledge out of cabin wood and copper nails. Taro cried while he hammered. Maya walked in front to find firm ice. Kael counted their food into smaller and smaller honest portions. Mani pulled until her palms split open. Baby pulled until he could not feel the rope.
 

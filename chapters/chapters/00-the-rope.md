@@ -8,7 +8,7 @@ He did not begin with the year. He began with the rope.
 
 Ten clans had met at a bend in the river. The mud there kept footprints for only one day. The oldest elders were too weak to travel, but they spoke the River Oath together, in one breath. Six people must walk to the Crystal Crown at Sphatika. At each of ten gates they must win the Royal Game.
 
-If they won all ten, the ten clans would become one people, and the land would get a name. If they failed, the clans would stay ten groups fighting over water. And an old force would keep pulling the world back into wilderness. Children had heard of it only in stories by the fire. The people called it the King of Serpents. Later it would be called Takshak.
+If they won all ten, the ten clans would become one people, and the land would get a name. If they failed, the clans would stay ten groups fighting over water. And an old force would keep pulling the world back into wilderness. Children had heard of it only in stories by the fire. The people called it the King of Serpents, and they said he lived in the scorched reed lands to the south. Later it would be called Takshak.
 
 The elders said he could not enter a game once the die was thrown and all six players stood in the court. But they said he could do almost anything else.
 

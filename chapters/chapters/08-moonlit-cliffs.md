@@ -26,7 +26,7 @@ Kael did both. That was his way of loving her.
 
 Eight cities. Ice ahead. Borin's breath came harder on the climbs.
 
-Baby counted the years without arithmetic. He counted by the times he had wound the reed bracelet back together until it broke, by the dice Taro had carved for teaching, and by the times the bronze snake had sent a stone backward.
+Baby counted the years without arithmetic. He counted by the times he had wound the reed bracelet back together until it broke, by the dice Taro had carved for teaching, and by the times a snake had taken a token from him.
 
 Two gates left, Nilahima and then Sphatika. One life spent. One friend getting heavy in his bones.
 

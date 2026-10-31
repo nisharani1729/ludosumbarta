@@ -8,7 +8,7 @@ He wrote: *We were six, and then we were a kingdom. That is not the same as bein
 
 The bark was almost full. Charcoal dust stained his fingers. Smoke from the morning cook fire drifted across the crystal. It was harmless and ordinary, a small miracle after a hundred years of pits and monsters.
 
-Baby Dufaan's hair was the color of the reed roofs of his childhood. He sat at the edge of the enclosure and shook the die one more time. It landed on one.
+Baby Dufaan's hair was gray, like the old reed roofs of his childhood. He sat at the edge of the enclosure and shook the die one more time. It landed on one.
 
 Mani laughed. It was a dry sound, but it was hers.
 
@@ -70,7 +70,7 @@ In the morning they would cross Vardhana's meadow again, not as founders but as 
 
 The die would stay wooden. The oath would stay six, and they were still six.
 
-And Takshak, coiled in the crystal far to the north, would count the years the way walkers count miles: patiently, hungrily, and already planning the next board.
+And Takshak would count the years the way walkers count miles: patiently, hungrily, and already planning the next board. His shadow lay in the crystal, but his home was far away, in the scorched reed lands south of Sumbarta. He could wait in both places.
 
 The bark was full. The walk went on downhill, toward reed smoke and children who would find toys in the mud and not know they were treaties.
 

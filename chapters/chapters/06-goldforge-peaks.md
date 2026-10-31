@@ -20,7 +20,7 @@ The Royal Game was played on a stone table that was still warm from the forges. 
 
 Afterward, the smiths wanted them to stay and be rich. Borin looked at the peaks and said, "If I stay, I will become the monster. I would rather be tired."
 
-They went down toward the grass. Mani's hands shook for a week. Baby kept the bent gold in his pouch until Nilahima would ask for it.
+They went down toward the grass. Mani's hands shook for a week. Baby kept the bent gold in his pouch. He did not know yet why.
 
 Six cities behind them. Kael's bark was thick now, and its edges curled. He wrote the gold chapter twice and crossed one out, as if the first version had boasted.
 

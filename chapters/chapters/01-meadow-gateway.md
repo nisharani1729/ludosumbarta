@@ -50,7 +50,7 @@ The girl-priest watched from the gate. She did not wave. She tied a fresh reed o
 
 Baby touched the first river stone in his pouch, the one the bronze snake had sent backward. He felt the century stretch out ahead of him like a path through tall grass.
 
-Kael led, carrying the bark strip Maya had shown them at the rope. He checked the clan marks against the stories he heard at campfires. Vardhana's amber still stained his nails yellow when he held the charcoal stick. The first chapter of the kingdom was already written in mud and bracelet fiber.
+Kael led, carrying the bark strip Maya had shown them at the rope. He checked the clan marks against the stories he heard at campfires. Vardhana's amber still stained his nails yellow. He had not started to write yet, but the first chapter of the kingdom was already written in mud and bracelet fiber.
 
 Mani did not look back. She never did. That was not cruelty. It was how she kept walking.
 
