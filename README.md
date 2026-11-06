@@ -100,4 +100,4 @@ downloads/LudoSumbarta.apk          Android build
 assets/                             Art, portraits, screenshots
 ```
 
-Download the game from the site, or grab the latest [`LudoSumbarta.apk` (v7.6)](https://github.com/nisharani1729/ludosumbarta/releases/download/7.6/LudoSumbarta.apk) from the [Releases](https://github.com/nisharani1729/ludosumbarta/releases) page.
+Download the game from the site, or grab the latest [`LudoSumbarta.apk` (v7.9)](https://github.com/nisharani1729/ludosumbarta/releases/download/7.9/LudoSumbarta.apk) from the [Releases](https://github.com/nisharani1729/ludosumbarta/releases) page.
